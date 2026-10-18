@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>今日热歌 · 2026-10-18</title>
+<style>
+:root{--bg:#0f1115;--card:#181b21;--line:#262a33;--fg:#e8eaed;--dim:#9aa0a6;--accent:#4c8dff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:16px 14px 130px}
+.wrap{max-width:640px;margin:0 auto}
+h1{font-size:19px;margin:6px 0 4px}
+.sub{color:var(--dim);font-size:13px;margin-bottom:14px}
+.song{display:flex;align-items:center;gap:12px;padding:9px 8px;border-radius:12px;border:1px solid transparent}
+.song.on{background:#1d2433;border-color:#2b4a86}
+.song img{width:56px;height:56px;border-radius:8px;object-fit:cover;background:#22262e}
+.song .meta{flex:1;min-width:0}
+.song b{font-size:15px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.song small{color:var(--dim);font-size:12px;display:block;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.song button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#232833;color:var(--fg);font-size:15px;cursor:pointer}
+.song.on button{background:var(--accent);border-color:var(--accent)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#12151b;border-top:1px solid var(--line);padding:10px 14px 14px}
+.bar .inner{max-width:640px;margin:0 auto}
+.bar .now{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--dim);margin-bottom:8px}
+.bar .now b{color:var(--fg);font-size:14px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .close{background:#2a1717;border-color:#5b2b2b;color:#ffb4b4}
+.bar .btns{display:flex;gap:10px}
+.bar button{padding:9px 14px;border-radius:10px;background:#232833;border:1px solid var(--line);color:var(--fg);font:inherit;cursor:pointer}
+</style></head>
+<body><div class="wrap">
+<h1>🎵 今日热歌 · 10 首</h1>
+<div class="sub">点任意一首直接播放，切换不用退出；不想听点「×」停下。</div>
+<div id="list"></div>
+</div>
+<div class="bar"><div class="inner">
+  <div class="now"><span>正在播放</span><b id="now">未选择</b>
+    <button class="close" id="stop">×</button></div>
+  <div class="btns">
+    <button id="prev">⏮ 上一首</button>
+    <button id="toggle">⏸ 暂停</button>
+    <button id="next">⏭ 下一首</button>
+  </div>
+</div></div>
+<audio id="au" preload="none"></audio>
+<script>
+const DATA = {"date": "2026-10-18", "version": "20261018192113", "songs": [{"title": "两 难", "singer": "加木", "album": "两 难", "cover": "https://p1.music.126.net/Qvenb5t_hL37b7hRfscjaw==/109951169686160429.jpg", "url": "https://music.163.com/song/media/outer/url?id=2163210456.mp3"}, {"title": "把回忆拼好给你", "singer": "王贰浪", "album": "把回忆拼好给你", "cover": "https://p2.music.126.net/CBx2K_jEN3SNWwYztagPPw==/109951164485969446.jpg", "url": "https://music.163.com/song/media/outer/url?id=1403318151.mp3"}, {"title": "晚安", "singer": "颜人中", "album": "晚安", "cover": "https://p2.music.126.net/-rC55JsnmEWvafJQsAZaWw==/109951170473693123.jpg", "url": "https://music.163.com/song/media/outer/url?id=1359356908.mp3"}, {"title": "予你", "singer": "队长", "album": "予你", "cover": "https://p2.music.126.net/yxVm_vRFOode6yP67NmMcA==/109951166625738075.jpg", "url": "https://music.163.com/song/media/outer/url?id=1895330088.mp3"}, {"title": "再等冬天(Memories)", "singer": "h3R3", "album": "故事商铺·上", "cover": "https://p2.music.126.net/JBe7AwcGkYHhleOfQvY2hg==/109951169798343077.jpg", "url": "https://music.163.com/song/media/outer/url?id=1927693793.mp3"}, {"title": "小胡同", "singer": "郑润泽", "album": "小胡同", "cover": "https://p2.music.126.net/QsebYbDgQtKelH6r1iE2Fg==/109951167129280730.jpg", "url": "https://music.163.com/song/media/outer/url?id=1926623288.mp3"}, {"title": "你", "singer": "郑润泽", "album": "你", "cover": "https://p2.music.126.net/OvnvQlFc8QSD7UnqtM9YYw==/109951164512103081.jpg", "url": "https://music.163.com/song/media/outer/url?id=1406083061.mp3"}, {"title": "熄灭", "singer": "TC", "album": "熄灭", "cover": "https://p2.music.126.net/sNOy5UAdfk_OYumV4qF-0g==/109951168551205771.jpg", "url": "https://music.163.com/song/media/outer/url?id=2040015902.mp3"}, {"title": "偷心", "singer": "SASIOVERLXRD、连麻Swimming", "album": "偷心", "cover": "https://p2.music.126.net/QGz52525n-ZEqf9LENbZig==/109951163256839164.jpg", "url": "https://music.163.com/song/media/outer/url?id=554322674.mp3"}, {"title": "升本后醒来", "singer": "上饒天選之子", "album": "不要去假装努力，结局不会陪你演戏", "cover": "https://p2.music.126.net/ZmU9ZW0nuf2OZ87lHHVG-w==/109951173678671896.jpg", "url": "https://music.163.com/song/media/outer/url?id=3442747167.mp3"}]};
+const au = document.getElementById("au");
+let cur = -1;
+const box = document.getElementById("list");
+DATA.songs.forEach((s,i)=>{
+  const row=document.createElement("div");row.className="song";row.id="s"+i;
+  row.innerHTML='<img src="'+(s.cover||"")+'" alt="" loading="lazy">'
+    +'<div class="meta"><b>'+s.title+'</b><small>'+[s.singer,s.album].filter(Boolean).join(" · ")+'</small></div>'
+    +'<button>▶</button>';
+  row.querySelector("button").onclick=()=>play(i);
+  box.appendChild(row);
+});
+function mark(i){document.querySelectorAll(".song").forEach((r,n)=>r.classList.toggle("on",n===i));}
+function play(i){
+  if(!DATA.songs[i]||!DATA.songs[i].url)return;
+  cur=i;au.src=DATA.songs[i].url;au.play().catch(()=>{});
+  document.getElementById("now").textContent=DATA.songs[i].title;
+  document.getElementById("toggle").textContent="⏸ 暂停";
+  mark(i);
+}
+au.addEventListener("ended",()=>{if(cur+1<DATA.songs.length)play(cur+1);else document.getElementById("toggle").textContent="▶ 播放";});
+au.addEventListener("play",()=>document.getElementById("toggle").textContent="⏸ 暂停");
+au.addEventListener("pause",()=>document.getElementById("toggle").textContent="▶ 播放");
+document.getElementById("toggle").onclick=()=>{
+  if(cur<0){play(0);return}
+  if(au.paused)au.play();else au.pause();
+};
+document.getElementById("stop").onclick=()=>{
+  au.pause();au.removeAttribute("src");au.load();cur=-1;
+  document.getElementById("now").textContent="未选择";
+  document.getElementById("toggle").textContent="▶ 播放";mark(-1);
+};
+document.getElementById("prev").onclick=()=>{if(cur>0)play(cur-1)};
+document.getElementById("next").onclick=()=>{if(cur+1<DATA.songs.length)play(cur+1)};
+(function(){const m=(location.hash||"").match(/#s(\d+)/);if(m){const i=parseInt(m[1]);
+  if(DATA.songs[i]){mark(i);document.getElementById("now").textContent=DATA.songs[i].title;play(i);}}})();
+</script></body></html>
