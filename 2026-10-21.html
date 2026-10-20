@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>铭鉴早报 · 2026-10-21 浓缩语音版</title>
+<style>
+:root{--bg:#0f1115;--card:#181b21;--line:#262a33;--fg:#e8eaed;--dim:#9aa0a6;--accent:#4c8dff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:16px 14px 140px}
+.wrap{max-width:680px;margin:0 auto}
+h1{font-size:19px;margin:6px 0 2px}
+.sub{color:var(--dim);font-size:13px;margin-bottom:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.resume{display:none;background:linear-gradient(135deg,#1d2b4d,#182031);border-color:#2b4a86}
+.resume b{color:var(--accent)}
+button{font:inherit;color:var(--fg);background:#232833;border:1px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer}
+button:active{transform:scale(.98)}
+.big{width:100%;background:var(--accent);border-color:var(--accent);font-weight:600;font-size:16px;padding:14px}
+.row{display:flex;align-items:center;gap:12px;padding:12px 4px}
+.row .name{flex:1;font-size:15px}
+.row .meta{color:var(--dim);font-size:12px;margin-top:3px}
+.row button{padding:8px 14px;border-radius:20px;background:#2a3040}
+.row.on .name{color:var(--accent)}
+.tr{padding:4px 2px 2px}
+.ti{display:flex;gap:10px;padding:9px 6px;border-bottom:1px solid var(--line);cursor:pointer;border-radius:8px}
+.ti:last-child{border-bottom:0}
+.ti .ts{color:var(--accent);font-size:12px;min-width:42px;padding-top:2px;font-variant-numeric:tabular-nums}
+.ti .tx{flex:1;font-size:14px;line-height:1.65;color:#c9ced6}
+.ti .tx b{color:#e8eaed;font-weight:600}
+.ti .tx p{margin:4px 0 0;color:var(--dim);font-size:13px;line-height:1.6}
+.ti.live{background:#1d2433}
+.ti.live .tx b{color:#8fb8ff}
+details{margin-top:6px}
+summary{color:var(--dim);font-size:13px;cursor:pointer;padding:6px 2px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#12151b;border-top:1px solid var(--line);padding:10px 14px 14px}
+.bar .inner{max-width:680px;margin:0 auto}
+.bar .top{display:flex;justify-content:space-between;font-size:12px;color:var(--dim);margin-bottom:6px}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.ctl{display:flex;align-items:center;gap:10px;margin-top:8px}
+.ctl .t{color:var(--dim);font-size:12px;flex:1;text-align:right}
+</style></head>
+<body><div class="wrap">
+<h1>🎧 铭鉴早报 · 2026-10-21 浓缩语音版</h1>
+<div class="sub">五个板块共约 20 分钟 · 每条讲稿与音频严格对应 · 更新于 10-21 07:50</div>
+<div class="panel resume" id="resume"><span id="resumeText"></span>
+  <div style="margin-top:10px"><button id="resumeBtn">继续上次</button>
+  <button id="forgetBtn">从头开始</button></div></div>
+<div class="panel"><button class="big" id="playAll">▶ 全部播放（约 20 分钟）</button></div>
+<div class="panel" id="list"></div>
+</div>
+<div class="bar"><div class="inner">
+  <div class="top"><span id="nowTitle">未播放</span><span id="nowTime">00:00 / 00:00</span></div>
+  <input type="range" id="seek" min="0" max="100" value="0" step="0.1">
+  <div class="ctl">
+    <button id="prev">⏮</button><button id="toggle">▶</button><button id="next">⏭</button>
+    <span class="t" id="mode">单板块</span>
+  </div>
+</div></div>
+<audio id="audio" preload="metadata"></audio>
+<script>
+const DATA = {"date": "2026-10-21", "sections": [{"key": "tech", "name": "科技", "emoji": "🔬", "count": 10, "items": [{"title": "马斯克：SpaceX 可能在 2028 年实现 1 万亿美元营收", "body": "IT之家 10 月 21 日消息，当地时间 10 月 20 日，埃隆 · 马斯克在社交平台发文称，“尽管这听起来很疯狂，但 SpaceX 在 2028 年实现 1 万亿美元 （IT之家注：现汇率约合 6.69 万亿元人民币） 营收已不再是不可能的事。” 同日，SpaceX 公布 2026 年第三季度业绩：营收。这条来自IT之家。", "speech": "第 1 条，马斯克：SpaceX 可能在 2028 年实现 1 万亿美元营收。IT之家 10 月 21 日消息，当地时间 10 月 20 日，埃隆 · 马斯克在社交平台发文称，“尽管这听起来很疯狂，但 SpaceX 在 2028 年实现 1 万亿美元 （IT之家注：现汇率约合 6.69 万亿元人民币） 营收已不再是不可能的事。” 同日，SpaceX 公布 2026 年第三季度业绩：营收。这条来自IT之家。", "chars": 204, "start": 3.94}, {"title": "具透 Plus：Firefox 被「中途喝止」的界面现代化改造；Pixel 不再为 VoL", "body": "FirefoxNova：被「中途喝止」的界面现代化改造@PlatyHsu:9月29日，Mozilla随Firefox157推出了代号为Nova的全新设计。这是继2021年Proton改版以来，Fire ... 本文为会员文章，出自 《单篇文章》 ，订阅后可。这条来自少数派。", "speech": "第 2 条，具透 Plus：Firefox 被「中途喝止」的界面现代化改造；Pixel 不再为 VoL。FirefoxNova：被「中途喝止」的界面现代化改造@PlatyHsu:9月29日，Mozilla随Firefox157推出了代号为Nova的全新设计。这是继2021年Proton改版以来，Fire ... 本文为会员文章，出自 《单篇文章》 ，订阅后可。这条来自少数派。", "chars": 189, "start": 41.18}, {"title": "从一句话到一个能玩的世界，VAST 把整条链路开源了", "body": "规则归交互系统，画面归模型。这条来自爱范儿。", "speech": "第 3 条，从一句话到一个能玩的世界，VAST 把整条链路开源了。规则归交互系统，画面归模型。这条来自爱范儿。", "chars": 55, "start": 74.04}, {"title": "OpenAI 增强 AI 模型攻克冷门编程语言，COBOL 迁移准确率飙至 97.9%", "body": "IT之家 10 月 21 日消息，OpenAI 公司昨日（10 月 20 日）发布研究报告， 称增强 GPT-6 Astra 等模型构建和迁移 COBOL、Fortran、Visual Basic 等“低资源编程语言”的能力。 这类语言虽然公开代码和文档较少，却广泛支撑银行、ATM、天气预报和核安全分析等关键。这条来自IT之家。", "speech": "第 4 条，OpenAI 增强 AI 模型攻克冷门编程语言，COBOL 迁移准确率飙至 97.9%。IT之家 10 月 21 日消息，OpenAI 公司昨日（10 月 20 日）发布研究报告， 称增强 GPT-6 Astra 等模型构建和迁移 COBOL、Fortran、Visual Basic 等“低资源编程语言”的能力。 这类语言虽然公开代码和文档较少，却广泛支撑银行、ATM、天气预报和核安全分析等关键。这条来自IT之家。", "chars": 215, "start": 86.09}, {"title": "TDS REVIEW，vivo Buds Clip 耳夹式无线耳机体验", "body": "在 TWS 5 系列获得我们不错评价之后，Buds Clip 能否延续他们「来得晚但完成度更高」的特点呢？。这条来自少数派。", "speech": "第 5 条，TDS REVIEW，vivo Buds Clip 耳夹式无线耳机体验。在 TWS 5 系列获得我们不错评价之后，Buds Clip 能否延续他们「来得晚但完成度更高」的特点呢？。这条来自少数派。", "chars": 104, "start": 125.38}, {"title": "押注记忆原生，MemT 1.0 破局养成系 AI 下半场", "body": "MemT 1.0 开源，给出「记忆原生」新解法。这条来自爱范儿。", "speech": "第 6 条，押注记忆原生，MemT 1.0 破局养成系 AI 下半场。MemT 1.0 开源，给出「记忆原生」新解法。这条来自爱范儿。", "chars": 67, "start": 143.3}, {"title": "AMD Zen 6 又爆猛料：12 核多线程表现媲美现款 16 核旗舰处理器", "body": "IT之家 10 月 21 日消息，Hydra 工具开发者 @1usmus 在社交平台回应网友时表示，一张 Cinebench 截图的“配色”暴露了相关信息， 透露基于 Zen 6 架构打造的一款 12 核心 Ryzen 处理器，在多线程性能方面有望媲美当前旗舰级 16 核心 Ryzen 9 9950X3D。这条来自IT之家。", "speech": "第 7 条，AMD Zen 6 又爆猛料：12 核多线程表现媲美现款 16 核旗舰处理器。IT之家 10 月 21 日消息，Hydra 工具开发者 @1usmus 在社交平台回应网友时表示，一张 Cinebench 截图的“配色”暴露了相关信息， 透露基于 Zen 6 架构打造的一款 12 核心 Ryzen 处理器，在多线程性能方面有望媲美当前旗舰级 16 核心 Ryzen 9 9950X3D。这条来自IT之家。", "chars": 208, "start": 157.51}, {"title": "从「空间扩展」到「等比放大」：我如何为 MacBook Pro 搭建双屏桌面", "body": "原厂屏幕之外最省心的搭档。这条来自少数派。", "speech": "第 8 条，从「空间扩展」到「等比放大」：我如何为 MacBook Pro 搭建双屏桌面。原厂屏幕之外最省心的搭档。这条来自少数派。", "chars": 66, "start": 194.18}, {"title": "特斯拉只能飞 5 秒？科学家称其为「放屁车」，联邦航空局：不符合航空器定义", "body": "马斯克：我朝你放个屁。这条来自爱范儿。", "speech": "第 9 条，特斯拉只能飞 5 秒？科学家称其为「放屁车」，联邦航空局：不符合航空器定义。马斯克：我朝你放个屁。这条来自爱范儿。", "chars": 63, "start": 207.07}, {"title": "Meta AI 助手 Muse 上线 40 天美国下载量破千万，仅 11 款应用曾达成该纪录", "body": "IT之家 10 月 21 日消息，Meta 的人工智能助手 Muse 现已跻身仅十余个上线 40 天内美国下载量破千万的移动应用行列。市场情报机构 Sensor Tower 的最新数据显示，Muse 自 9 月推出以来，累计下载量达 1090 万次，其中美国地区下载量为 1020 万次。 Sensor Tow。这条来自IT之家。", "speech": "第 10 条，Meta AI 助手 Muse 上线 40 天美国下载量破千万，仅 11 款应用曾达成该纪录。IT之家 10 月 21 日消息，Meta 的人工智能助手 Muse 现已跻身仅十余个上线 40 天内美国下载量破千万的移动应用行列。市场情报机构 Sensor Tower 的最新数据显示，Muse 自 9 月推出以来，累计下载量达 1090 万次，其中美国地区下载量为 1020 万次。 Sensor Tow。这条来自IT之家。", "chars": 219, "start": 221.57}], "seconds": 263.2, "rate": "-6%", "file": "https://cdn.jsdelivr.net/gh/liuyang987695908-spec/mingjian-audio@main/audio/2026-10-21/tech.mp3?v=20261021075055", "backup": "audio/2026-10-21/tech.mp3?v=20261021075055"}, {"key": "culture", "name": "人文", "emoji": "🎭", "count": 15, "items": [{"title": "历史上的今天，1977年10月21日，高考宣告重启", "body": "这条来自澎湃思想。", "speech": "第 1 条，历史上的今天，1977年10月21日，高考宣告重启。这条来自澎湃思想。", "chars": 41, "start": 3.62}, {"title": "文化观察：从良渚看文化遗产如何点亮大众旅游", "body": "中新网杭州10月20日电(林波 孙琳茹)戴上AR眼镜，五千年前的良渚古城在眼前“活”了起来。这条来自中新网文化。", "speech": "第 2 条，文化观察：从良渚看文化遗产如何点亮大众旅游。中新网杭州10月20日电(林波 孙琳茹)戴上AR眼镜，五千年前的良渚古城在眼前“活”了起来。这条来自中新网文化。", "chars": 84, "start": 12.05}, {"title": "在北外滩看全球航运韧性：上海既是参与者，也是答案的一部分", "body": "这条来自澎湃思想。", "speech": "第 3 条，在北外滩看全球航运韧性：上海既是参与者，也是答案的一部分。这条来自澎湃思想。", "chars": 44, "start": 28.49}, {"title": "第10届中国校园戏剧节在蓉开幕 复旦话剧《长水悠悠》登台献演", "body": "中新网成都10月20日电 (单鹏)20日晚，第10届中国校园戏剧节在成都大学成都东盟艺术中心大剧场开幕，复旦大学话剧《长水悠悠》作为开幕剧目登台献演。自此，本届戏剧节为期十余天的剧目展演、大师讲座、戏剧工作坊及“一剧进一校”等系列活动正式展开。这条来自中新网文化。", "speech": "第 4 条，第10届中国校园戏剧节在蓉开幕 复旦话剧《长水悠悠》登台献演。中新网成都10月20日电 (单鹏)20日晚，第10届中国校园戏剧节在成都大学成都东盟艺术中心大剧场开幕，复旦大学话剧《长水悠悠》作为开幕剧目登台献演。自此，本届戏剧节为期十余天的剧目展演、大师讲座、戏剧工作坊及“一剧进一校”等系列活动正式展开。这条来自中新网文化。", "chars": 169, "start": 37.63}, {"title": "专访施小明：气候健康风险已显性化，公共卫生应对须从应急转向常态", "body": "这条来自澎湃思想。", "speech": "第 5 条，专访施小明：气候健康风险已显性化，公共卫生应对须从应急转向常态。这条来自澎湃思想。", "chars": 47, "start": 70.32}, {"title": "《看见豹之地·寻护者第二季》发布 王一博呼吁保护华北豹", "body": "中新网北京10月20日电 (记者 高凯)公益纪录片《看见豹之地·寻护者第二季》媒体首映会20日在北京国家自然博物馆举行。这条来自中新网文化。", "speech": "第 6 条，《看见豹之地·寻护者第二季》发布 王一博呼吁保护华北豹。中新网北京10月20日电 (记者 高凯)公益纪录片《看见豹之地·寻护者第二季》媒体首映会20日在北京国家自然博物馆举行。这条来自中新网文化。", "chars": 104, "start": 80.47}, {"title": "军队有关部门赴多地看望慰问5位老红军", "body": "这条来自澎湃思想。", "speech": "第 7 条，军队有关部门赴多地看望慰问5位老红军。这条来自澎湃思想。", "chars": 34, "start": 100.22}, {"title": "刘心武新作《晚风拂柳笛声残》讲述“一个写作者的长路”", "body": "中新网北京10月20日电 (记者 高凯)“在时间中凝珠：一个写作者的长路——刘心武《晚风拂柳笛声残》新书分享会”日前在北京举行。这条来自中新网文化。", "speech": "第 8 条，刘心武新作《晚风拂柳笛声残》讲述“一个写作者的长路”。中新网北京10月20日电 (记者 高凯)“在时间中凝珠：一个写作者的长路——刘心武《晚风拂柳笛声残》新书分享会”日前在北京举行。这条来自中新网文化。", "chars": 107, "start": 107.52}, {"title": "吴越等人被AI盗用带货，经济日报：识别AI仿冒平台需担起责任", "body": "这条来自澎湃思想。", "speech": "第 9 条，吴越等人被AI盗用带货，经济日报：识别AI仿冒平台需担起责任。这条来自澎湃思想。", "chars": 46, "start": 126.96}, {"title": "台湾京剧名家李宝春在北京讲述“戏里功夫”“戏外人生”", "body": "中新社北京10月20日电 (记者 朱贺 徐雪莹)“想让大陆观众看到，我们的年轻演员不仅演传统戏，也用舞台剧手法讲故事。”20日晚，即将在北京登台的台湾京剧名家李宝春说，希望赋予京剧更多当代气息，让年轻观众愿意贴近传统。这条来自中新网文化。", "speech": "第 10 条，台湾京剧名家李宝春在北京讲述“戏里功夫”“戏外人生”。中新社北京10月20日电 (记者 朱贺 徐雪莹)“想让大陆观众看到，我们的年轻演员不仅演传统戏，也用舞台剧手法讲故事。”20日晚，即将在北京登台的台湾京剧名家李宝春说，希望赋予京剧更多当代气息，让年轻观众愿意贴近传统。这条来自中新网文化。", "chars": 153, "start": 136.97}, {"title": "人民日报头版：在新的长征路上继续奋勇前进", "body": "这条来自澎湃思想。", "speech": "第 11 条，人民日报头版：在新的长征路上继续奋勇前进。这条来自澎湃思想。", "chars": 37, "start": 165.94}, {"title": "第十八届傅雷翻译出版奖揭晓10部入围作品", "body": "中新社北京10月20日电 (肖玉笛 何欣怿)“我们要翻译的不是一种语言，而是一种现象。”法国汉学家、中国人民大学比较哲学副教授杨一心20日在北京说，文学翻译不仅要准确传达原文，还需要译者发挥创造力，在语言表达上大胆探索。他不担心人工智能带来的变化，并表示人的理解、判断与创造仍不可或缺。这条来自中新网文化。", "speech": "第 12 条，第十八届傅雷翻译出版奖揭晓10部入围作品。中新社北京10月20日电 (肖玉笛 何欣怿)“我们要翻译的不是一种语言，而是一种现象。”法国汉学家、中国人民大学比较哲学副教授杨一心20日在北京说，文学翻译不仅要准确传达原文，还需要译者发挥创造力，在语言表达上大胆探索。他不担心人工智能带来的变化，并表示人的理解、判断与创造仍不可或缺。这条来自中新网文化。", "chars": 181, "start": 173.81}, {"title": "人民日报金社平：深刻认识中国经济运行的三个突出特点", "body": "这条来自澎湃思想。", "speech": "第 13 条，人民日报金社平：深刻认识中国经济运行的三个突出特点。这条来自澎湃思想。", "chars": 42, "start": 209.42}, {"title": "肖复兴现身“名家讲经典”：书是成长的伴侣", "body": "中新网北京10月20日电 (记者 高凯)“名家讲经典——肖复兴：书卷多情似故人”文学活动日前在北京建筑大学举办。活动邀请作家肖复兴，为现场师生及线上读者分享自己的读书心得与写作经验，讲述如何通过细读、重读、对读走进经典，又如何从日常小事中发现写作的源泉。这条来自中新网文化。", "speech": "第 14 条，肖复兴现身“名家讲经典”：书是成长的伴侣。中新网北京10月20日电 (记者 高凯)“名家讲经典——肖复兴：书卷多情似故人”文学活动日前在北京建筑大学举办。活动邀请作家肖复兴，为现场师生及线上读者分享自己的读书心得与写作经验，讲述如何通过细读、重读、对读走进经典，又如何从日常小事中发现写作的源泉。这条来自中新网文化。", "chars": 165, "start": 218.11}, {"title": "厂区成布景、证书成道具，媒体：“产品溯源”不能沦为坑老营销“新马甲”", "body": "这条来自澎湃思想。", "speech": "第 15 条，厂区成布景、证书成道具，媒体：“产品溯源”不能沦为坑老营销“新马甲”。这条来自澎湃思想。", "chars": 51, "start": 250.9}], "seconds": 263.1, "rate": "+6%", "file": "https://cdn.jsdelivr.net/gh/liuyang987695908-spec/mingjian-audio@main/audio/2026-10-21/culture.mp3?v=20261021075055", "backup": "audio/2026-10-21/culture.mp3?v=20261021075055"}, {"key": "book", "name": "书籍", "emoji": "📚", "count": 10, "items": [{"title": "124个梦", "body": "「我想我已经记下了我做的梦：我发现，很快发现，我已经是在为了写梦而做梦了。」。 比“梦核”这个词更早出现的梦核文学，对迷糊之美的孤单坚持，来自1973年。 是真的做梦还是在写笑话合集？像小时候看《脑筋急转弯》。[法] 乔治·佩雷克，2026-9，四川文艺出版社，56.00，平装。这条来自豆瓣新书速递。", "speech": "第 1 条，124个梦。「我想我已经记下了我做的梦：我发现，很快发现，我已经是在为了写梦而做梦了。」。 比“梦核”这个词更早出现的梦核文学，对迷糊之美的孤单坚持，来自1973年。 是真的做梦还是在写笑话合集？像小时候看《脑筋急转弯》。[法] 乔治·佩雷克，2026-9，四川文艺出版社，56.00，平装。这条来自豆瓣新书速递。", "chars": 163, "start": 3.0}, {"title": "落在我身上的雨", "body": "《四个春天》后，陆庆屹全新文学作品。一本温柔又辽阔的浮生手记，书写跨越余生的重逢。陆庆屹，2026-8，新星出版社，59.00元，平装。这条来自豆瓣图书榜。", "speech": "第 2 条，落在我身上的雨。《四个春天》后，陆庆屹全新文学作品。一本温柔又辽阔的浮生手记，书写跨越余生的重逢。陆庆屹，2026-8，新星出版社，59.00元，平装。这条来自豆瓣图书榜。", "chars": 92, "start": 30.7}, {"title": "蒙古帝国的阴影下：明朝和欧亚大陆", "body": "13世纪，蒙古人缔造了人类历史上版图最辽阔的帝国。成吉思汗及其继承者横扫欧亚大陆，在中国、波斯和南俄等地营造政权中心，那里因汇聚财富、学术、权力、宗教与奢华盛典而举世闻名。蒙古王室更是确立了一套未来几个世纪欧亚大陆的统治者衡量自身合法性的标准。[美]鲁大维，2026-9-1，东方出版中心，96.00元，精装。这条来自豆瓣新书速递。", "speech": "第 3 条，蒙古帝国的阴影下：明朝和欧亚大陆。13世纪，蒙古人缔造了人类历史上版图最辽阔的帝国。成吉思汗及其继承者横扫欧亚大陆，在中国、波斯和南俄等地营造政权中心，那里因汇聚财富、学术、权力、宗教与奢华盛典而举世闻名。蒙古王室更是确立了一套未来几个世纪欧亚大陆的统治者衡量自身合法性的标准。[美]鲁大维，2026-9-1，东方出版中心，96.00元，精装。这条来自豆瓣新书速递。", "chars": 189, "start": 47.18}, {"title": "无论如何，潜水", "body": "韩国新生代女性主义代表人物、作家、地球科学学者河美娜，治愈系随笔作品，中文世界首度引进。这是一部超越了运动范畴的生命随笔集。河美娜，2026-7，广西师大出版社，49.8，平装。这条来自豆瓣图书榜。", "speech": "第 4 条，无论如何，潜水。韩国新生代女性主义代表人物、作家、地球科学学者河美娜，治愈系随笔作品，中文世界首度引进。这是一部超越了运动范畴的生命随笔集。河美娜，2026-7，广西师大出版社，49.8，平装。这条来自豆瓣图书榜。", "chars": 113, "start": 81.43}, {"title": "书和偶然", "body": "《书和偶然》是作家金草叶首部随笔集，也是她创作观念的首次全面呈现。[韩] 金草叶，2026-9，上海译文出版社，56.00，平装。这条来自豆瓣新书速递。", "speech": "第 5 条，书和偶然。《书和偶然》是作家金草叶首部随笔集，也是她创作观念的首次全面呈现。[韩] 金草叶，2026-9，上海译文出版社，56.00，平装。这条来自豆瓣新书速递。", "chars": 87, "start": 102.22}, {"title": "爱的辛劳：一名心理咨询师见证的欲望、创伤与人间", "body": "关于爱，我们常常自欺；要看清自己与他人，必须付出辛劳。浓缩40年心理治疗经验，细腻拆解情感关系中的谜团。揭示自我、家庭、事业、抉择中的众多幽深面向。严艺家作序推荐。透过关乎人生全部真谛的“爱”，揭示自我、情感、人际关系中的众多幽深面向。[美] 斯蒂芬·格罗斯，2026-7，上海三联书店，49.00元，平装。这条来自豆瓣图书榜。", "speech": "第 6 条，爱的辛劳：一名心理咨询师见证的欲望、创伤与人间。关于爱，我们常常自欺；要看清自己与他人，必须付出辛劳。浓缩40年心理治疗经验，细腻拆解情感关系中的谜团。揭示自我、家庭、事业、抉择中的众多幽深面向。严艺家作序推荐。透过关乎人生全部真谛的“爱”，揭示自我、情感、人际关系中的众多幽深面向。[美] 斯蒂芬·格罗斯，2026-7，上海三联书店，49.00元，平装。这条来自豆瓣图书榜。", "chars": 194, "start": 117.62}, {"title": "照料你自己：现代情感通识课", "body": "跳出向内的自我诘问。把情感放置于不确定的现代生活。看懂时代如何塑造我们的欢喜与困顿。真正学会照料自己。在这个被焦虑、疲惫与精神内耗裹挟的时代，我们常常将情感问题归咎于“心态不够好”。袁光锋，2026-8，广东人民出版社，78.00元，精装。这条来自豆瓣新书速递。", "speech": "第 7 条，照料你自己：现代情感通识课。跳出向内的自我诘问。把情感放置于不确定的现代生活。看懂时代如何塑造我们的欢喜与困顿。真正学会照料自己。在这个被焦虑、疲惫与精神内耗裹挟的时代，我们常常将情感问题归咎于“心态不够好”。袁光锋，2026-8，广东人民出版社，78.00元，精装。这条来自豆瓣新书速递。", "chars": 151, "start": 152.4}, {"title": "啸风山庄（插图袖珍本）", "body": "《呼啸山庄》全新译本，资深译者赖慈芸口碑之作。 24幅精美插图 × 200+条注释 × 万字导读 × 深度作品解析。人物关系图 + 地图 + 作者年表 + 彩绘全景图 + 小说年表 + 纪念藏书票。[英] 艾米莉·勃朗特，2026-8，九州出版社，65.00元，平装 活腔 锁线。这条来自豆瓣图书榜。", "speech": "第 8 条，啸风山庄（插图袖珍本）。《呼啸山庄》全新译本，资深译者赖慈芸口碑之作。 24幅精美插图 × 200+条注释 × 万字导读 × 深度作品解析。人物关系图 + 地图 + 作者年表 + 彩绘全景图 + 小说年表 + 纪念藏书票。[英] 艾米莉·勃朗特，2026-8，九州出版社，65.00元，平装 活腔 锁线。这条来自豆瓣图书榜。", "chars": 168, "start": 179.35}, {"title": "爱爱不爱", "body": "在理性、效率与自我实现成为信条的今天，爱情如何幸存？写给越来越难以心动的我们：无论单身、恋爱、失恋、犹豫还是怀疑，都能收获看待爱情的新角度。恋爱投入大于产出？确诊恋爱脑。如何为感情保鲜？别那么黏人。(瑞典) 利夫·斯特伦奎斯特，2026-8，新星出版社，78，平装。这条来自豆瓣新书速递。", "speech": "第 9 条，爱爱不爱。在理性、效率与自我实现成为信条的今天，爱情如何幸存？写给越来越难以心动的我们：无论单身、恋爱、失恋、犹豫还是怀疑，都能收获看待爱情的新角度。恋爱投入大于产出？确诊恋爱脑。如何为感情保鲜？别那么黏人。(瑞典) 利夫·斯特伦奎斯特，2026-8，新星出版社，78，平装。这条来自豆瓣新书速递。", "chars": 155, "start": 207.0}, {"title": "恐龙的移动轨迹", "body": "我们，还没有灭绝。”。突破性别框架，书写不被定义的亲密关系。4万+读者票选的韩国人气作家。人类幽微情感的天才捕手——金和珍。短篇代表作，简中首次引进！首刷限定！随书赠PVC心之透卡。[韩] 金和珍，2026-8，广西师范大学出版社，48，平装。这条来自豆瓣图书榜。", "speech": "第 10 条，恐龙的移动轨迹。我们，还没有灭绝。”。突破性别框架，书写不被定义的亲密关系。4万+读者票选的韩国人气作家。人类幽微情感的天才捕手——金和珍。短篇代表作，简中首次引进！首刷限定！随书赠PVC心之透卡。[韩] 金和珍，2026-8，广西师范大学出版社，48，平装。这条来自豆瓣图书榜。", "chars": 147, "start": 235.73}], "seconds": 264.8, "rate": "+25%", "file": "https://cdn.jsdelivr.net/gh/liuyang987695908-spec/mingjian-audio@main/audio/2026-10-21/book.mp3?v=20261021075055", "backup": "audio/2026-10-21/book.mp3?v=20261021075055"}, {"key": "music", "name": "音乐", "emoji": "🎵", "count": 13, "items": [{"title": "海屿你", "body": "马也_Crabbit 演唱，收录在专辑《海屿你》。这条来自网易云·热歌榜。", "speech": "热歌榜第 1 名，《海屿你》，马也_Crabbit 演唱，收录在专辑《海屿你》。这条来自网易云·热歌榜。", "chars": 52, "start": 4.85}, {"title": "于是", "body": "郑润泽 演唱，收录在专辑《于是》。", "speech": "热歌榜第 2 名，《于是》，郑润泽 演唱，收录在专辑《于是》。", "chars": 31, "start": 16.92}, {"title": "还是会想你", "body": "林达浪、h3R3 演唱，收录在专辑《还是会想你》。", "speech": "热歌榜第 3 名，《还是会想你》，林达浪、h3R3 演唱，收录在专辑《还是会想你》。", "chars": 42, "start": 24.29}, {"title": "明知故犯", "body": "Max李玄 演唱，收录在专辑《失温》。", "speech": "热歌榜第 4 名，《明知故犯》，Max李玄 演唱，收录在专辑《失温》。", "chars": 35, "start": 34.73}, {"title": "罗生门（Follow）", "body": "梨冻紧、Wiz_H张子豪 演唱，收录在专辑《罗生门（Follow）》。", "speech": "热歌榜第 5 名，《罗生门（Follow）》，梨冻紧、Wiz_H张子豪 演唱，收录在专辑《罗生门（Follow）》。", "chars": 58, "start": 42.86}, {"title": "如果呢", "body": "郑润泽 演唱，收录在专辑《如果呢》。", "speech": "热歌榜第 6 名，《如果呢》，郑润泽 演唱，收录在专辑《如果呢》。", "chars": 33, "start": 54.89}, {"title": "忘不掉的你", "body": "h3R3 演唱，收录在专辑《忘不掉的你》。", "speech": "热歌榜第 7 名，《忘不掉的你》，h3R3 演唱，收录在专辑《忘不掉的你》。", "chars": 38, "start": 62.54}, {"title": "嗜好", "body": "颜人中 演唱，收录在专辑《嗜好》。", "speech": "热歌榜第 8 名，《嗜好》，颜人中 演唱，收录在专辑《嗜好》。", "chars": 31, "start": 71.35}, {"title": "遐想", "body": "郑润泽 演唱，收录在专辑《梦游》。", "speech": "热歌榜第 9 名，《遐想》，郑润泽 演唱，收录在专辑《梦游》。", "chars": 31, "start": 78.84}, {"title": "苦茶子", "body": "Starling8、DRODUMANA、FIVESTAR 演唱，收录在专辑《埋汰》。", "speech": "热歌榜第 10 名，《苦茶子》，Starling8、DRODUMANA、FIVESTAR 演唱，收录在专辑《埋汰》。", "chars": 58, "start": 86.42}, {"title": "Una Mattina Slap House", "body": "SMYE 演唱，收录在专辑《Una Mattina Slap House》。这条来自网易云·飙升榜。", "speech": "热歌榜第 11 名，《Una Mattina Slap House》，SMYE 演唱，收录在专辑《Una Mattina Slap House》。这条来自网易云·飙升榜。", "chars": 85, "start": 96.07}, {"title": "好久不见", "body": "NAVE、黄婷婷 演唱，收录在专辑《好久不见》。", "speech": "热歌榜第 12 名，《好久不见》，NAVE、黄婷婷 演唱，收录在专辑《好久不见》。", "chars": 41, "start": 110.28}, {"title": "时过境迁", "body": "苏艺馨Chency 演唱，收录在专辑《时过境迁》。", "speech": "热歌榜第 13 名，《时过境迁》，苏艺馨Chency 演唱，收录在专辑《时过境迁》。", "chars": 42, "start": 119.64}], "seconds": 131.4, "rate": "-20%", "file": "https://cdn.jsdelivr.net/gh/liuyang987695908-spec/mingjian-audio@main/audio/2026-10-21/music.mp3?v=20261021075055", "backup": "audio/2026-10-21/music.mp3?v=20261021075055"}, {"key": "hot", "name": "实时热点", "emoji": "🔥", "count": 30, "items": [{"title": "男子捡到38000元留了道题给失主", "body": "这条来自微博热搜。", "speech": "第 1 条，男子捡到38000元留了道题给失主。这条来自微博热搜。", "chars": 33, "start": 4.25}, {"title": "怎么看 DeepSeek 官宣单集群日均吞吐达 155 万亿 Token，单卡每小时收入", "body": "这条来自知乎热榜。", "speech": "第 2 条，怎么看 DeepSeek 官宣单集群日均吞吐达 155 万亿 Token，单卡每小时收入。这条来自知乎热榜。", "chars": 60, "start": 11.35}, {"title": "南部战区回应美舰冲闯中国海域", "body": "这条来自抖音热点。", "speech": "第 3 条，南部战区回应美舰冲闯中国海域。这条来自抖音热点。", "chars": 30, "start": 21.77}, {"title": "菲媒：若驱逐中国大使中方必对等回应", "body": "这条来自百度热搜。", "speech": "第 4 条，菲媒：若驱逐中国大使中方必对等回应。这条来自百度热搜。", "chars": 33, "start": 28.42}, {"title": "如何看待 2026 年 10 月 20 日下午疑似国内所有 mc 相关下载被封禁", "body": "这条来自知乎热榜。", "speech": "第 5 条，如何看待 2026 年 10 月 20 日下午疑似国内所有 mc 相关下载被封禁。这条来自知乎热榜。", "chars": 56, "start": 35.98}, {"title": "日美大规模军演引发多地抗议", "body": "这条来自抖音热点。", "speech": "第 6 条，日美大规模军演引发多地抗议。这条来自抖音热点。", "chars": 29, "start": 45.91}, {"title": "新能源车渗透率攀升至 67% 创历史新高，燃油车为何加速萎缩", "body": "这条来自知乎热榜。", "speech": "第 7 条，新能源车渗透率攀升至 67% 创历史新高，燃油车为何加速萎缩。这条来自知乎热榜。", "chars": 46, "start": 52.44}, {"title": "同心同行长征路", "body": "这条来自抖音热点。", "speech": "第 8 条，同心同行长征路。这条来自抖音热点。", "chars": 23, "start": 62.71}, {"title": "「红果短剧降智」引发广泛热议，为什么越是剧情粗糙的短剧越让人停不下来", "body": "这条来自知乎热榜。", "speech": "第 9 条，「红果短剧降智」引发广泛热议，为什么越是剧情粗糙的短剧越让人停不下来。这条来自知乎热榜。", "chars": 50, "start": 67.94}, {"title": "海事局发布多海域航行警告", "body": "这条来自抖音热点。", "speech": "第 10 条，海事局发布多海域航行警告。这条来自抖音热点。", "chars": 29, "start": 78.07}, {"title": "Sweet Baby 官网删光合作项目，登记员工从 16 人缩到不足 5 人，DEI 咨询", "body": "这条来自知乎热榜。", "speech": "第 11 条，Sweet Baby 官网删光合作项目，登记员工从 16 人缩到不足 5 人，DEI 咨询。这条来自知乎热榜。", "chars": 62, "start": 84.24}, {"title": "国家数据集团成立", "body": "这条来自抖音热点。", "speech": "第 12 条，国家数据集团成立。这条来自抖音热点。", "chars": 25, "start": 94.9}, {"title": "工信部提出「坚决防范不合理创新设计和未经充分研发测试验证的汽车产品进入市场」，这会给行业带", "body": "这条来自知乎热榜。", "speech": "第 13 条，工信部提出「坚决防范不合理创新设计和未经充分研发测试验证的汽车产品进入市场」，这会给行业带。这条来自知乎热榜。", "chars": 62, "start": 100.34}, {"title": "绝美旗袍可可妆", "body": "这条来自抖音热点。", "speech": "第 14 条，绝美旗袍可可妆。这条来自抖音热点。", "chars": 24, "start": 113.11}, {"title": "智驾小蓝灯颜色进入新国标，车灯禁显示文字、禁用语音关灯，这样规定有哪些考虑？会怎样影响今后", "body": "这条来自知乎热榜。", "speech": "第 15 条，智驾小蓝灯颜色进入新国标，车灯禁显示文字、禁用语音关灯，这样规定有哪些考虑？会怎样影响今后。这条来自知乎热榜。", "chars": 62, "start": 118.49}, {"title": "当东北人假装南方人", "body": "这条来自抖音热点。", "speech": "第 16 条，当东北人假装南方人。这条来自抖音热点。", "chars": 26, "start": 131.9}, {"title": "独生女车祸去世 10 年后赔偿所剩不多，父母再次起诉获批 5 年生活费，如何从法律角度解读", "body": "这条来自知乎热榜。", "speech": "第 17 条，独生女车祸去世 10 年后赔偿所剩不多，父母再次起诉获批 5 年生活费，如何从法律角度解读。这条来自知乎热榜。", "chars": 62, "start": 137.59}, {"title": "当初雪落在大同古城", "body": "这条来自抖音热点。", "speech": "第 18 条，当初雪落在大同古城。这条来自抖音热点。", "chars": 26, "start": 150.07}, {"title": "网友称可用「蟑螂粉」作为蛋白粉平替，商家还强调「野生蟑螂」，先抛开味道，这「蟑螂粉」有可能", "body": "这条来自知乎热榜。", "speech": "第 19 条，网友称可用「蟑螂粉」作为蛋白粉平替，商家还强调「野生蟑螂」，先抛开味道，这「蟑螂粉」有可能。这条来自知乎热榜。", "chars": 62, "start": 155.83}, {"title": "王者根本没有这样的共鸣之战", "body": "这条来自抖音热点。", "speech": "第 20 条，王者根本没有这样的共鸣之战。这条来自抖音热点。", "chars": 30, "start": 167.86}, {"title": "为什么目前 AI 的设备是用 Mac 为主，而不是熟知的 Windows", "body": "这条来自知乎热榜。", "speech": "第 21 条，为什么目前 AI 的设备是用 Mac 为主，而不是熟知的 Windows。这条来自知乎热榜。", "chars": 53, "start": 173.78}, {"title": "巴黎4:2巴萨", "body": "这条来自抖音热点。", "speech": "第 22 条，巴黎4:2巴萨。这条来自抖音热点。", "chars": 24, "start": 182.78}, {"title": "生殖隔离解除 24 小时、氧气消失三秒、所有动物失明 72 小时和全球暴雨 10 年，上述", "body": "这条来自知乎热榜。", "speech": "第 23 条，生殖隔离解除 24 小时、氧气消失三秒、所有动物失明 72 小时和全球暴雨 10 年，上述。这条来自知乎热榜。", "chars": 62, "start": 188.18}, {"title": "被无情画硬控8秒", "body": "这条来自抖音热点。", "speech": "第 24 条，被无情画硬控8秒。这条来自抖音热点。", "chars": 25, "start": 200.59}, {"title": "美舰冲闯中国南沙群岛仙宾礁附近海域，南部战区依法依规跟踪监视，美方意欲何为？哪些信息值得关", "body": "这条来自知乎热榜。", "speech": "第 25 条，美舰冲闯中国南沙群岛仙宾礁附近海域，南部战区依法依规跟踪监视，美方意欲何为？哪些信息值得关。这条来自知乎热榜。", "chars": 62, "start": 206.3}, {"title": "嫁金钗外祖母真的无条件爱魏娆", "body": "这条来自抖音热点。", "speech": "第 26 条，嫁金钗外祖母真的无条件爱魏娆。这条来自抖音热点。", "chars": 31, "start": 220.15}, {"title": "以人类今天的科技，能否应对白垩纪那颗小行星", "body": "这条来自知乎热榜。", "speech": "第 27 条，以人类今天的科技，能否应对白垩纪那颗小行星。这条来自知乎热榜。", "chars": 38, "start": 227.02}, {"title": "KDA新歌神之八秒", "body": "这条来自抖音热点。", "speech": "第 28 条，KDA新歌神之八秒。这条来自抖音热点。", "chars": 26, "start": 235.1}, {"title": "蒙古国草原火灾疑因一企业日籍高管为钓鱼违规进入引燃，此次火灾造成损失有多大？该高管可能要承", "body": "这条来自知乎热榜。", "speech": "第 29 条，蒙古国草原火灾疑因一企业日籍高管为钓鱼违规进入引燃，此次火灾造成损失有多大？该高管可能要承。这条来自知乎热榜。", "chars": 62, "start": 241.01}, {"title": "医学生锐评offer8", "body": "这条来自抖音热点。", "speech": "第 30 条，医学生锐评offer8。这条来自抖音热点。", "chars": 28, "start": 254.52}], "seconds": 262.8, "rate": "+3%", "file": "https://cdn.jsdelivr.net/gh/liuyang987695908-spec/mingjian-audio@main/audio/2026-10-21/hot.mp3?v=20261021075055", "backup": "audio/2026-10-21/hot.mp3?v=20261021075055"}]};
+const KEY = "mingjian-" + DATA.date;
+const audio = document.getElementById("audio");
+let index = -1, allMode = false;
+
+function fmt(s){s=Math.max(0,Math.floor(s||0));return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");}
+function saved(){try{return JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){return null}}
+function save(){if(index<0)return;localStorage.setItem(KEY,JSON.stringify({i:index,t:audio.currentTime}));}
+
+const list = document.getElementById("list");
+DATA.sections.forEach((s,i)=>{
+  const box=document.createElement("div");
+  const row=document.createElement("div");row.className="row";
+  row.innerHTML='<div class="name">'+s.emoji+" "+s.name
+    +'<div class="meta" id="meta'+i+'">'+s.count+" 条 · 时长读取中</div></div><button>播放</button>";
+  row.querySelector("button").onclick=()=>{play(i,false)};
+  const det=document.createElement("details");
+  det.innerHTML="<summary>本板块讲稿（"+s.count+" 条，可边听边看）</summary><div class='tr'>"
+    +s.items.map((it,k)=>'<div class="ti" data-sec="'+i+'" data-i="'+k+'">'
+      +'<div class="ts">'+fmt(it.start)+'</div><div class="tx"><b>'+it.title+'</b>'
+      +(it.body?'<p>'+it.body+'</p>':'')+'</div></div>').join("")+"</div>";
+  det.querySelectorAll(".ti").forEach(el=>{
+    el.onclick=()=>{const sec=parseInt(el.dataset.sec),k=parseInt(el.dataset.i);
+      const it=DATA.sections[sec].items[k];
+      if(index!==sec||allMode){play(sec,false);}
+      audio.currentTime=it.start;};
+  });
+  box.appendChild(row);box.appendChild(det);
+  if(i<DATA.sections.length-1)box.style.borderBottom="1px solid var(--line)";
+  list.appendChild(box);
+});
+
+function mark(i){document.querySelectorAll(".row").forEach((r,n)=>r.classList.toggle("on",n===i));}
+function play(i,all){
+  index=i;allMode=all;audio.src=DATA.sections[i].file;
+  audio.dataset.backup=DATA.sections[i].backup||"";audio.dataset.trying=DATA.sections[i].file;
+  const p=audio.play();
+  if(p&&p.catch){p.catch(function(){document.getElementById("toggle").textContent="▶ 点此播放";});}
+  mark(i);document.getElementById("nowTitle").textContent=DATA.sections[i].emoji+" "+DATA.sections[i].name;
+  document.getElementById("mode").textContent=all?"全部连播":"单板块";
+  document.getElementById("toggle").textContent="⏸";
+}
+audio.addEventListener("error",function(){
+  const b=audio.dataset.backup;
+  if(b&&audio.dataset.trying!==b){audio.dataset.trying=b;audio.src=b;audio.play().catch(function(){});}
+});
+function next(){if(index+1<DATA.sections.length){play(index+1,true)}else{allMode=false;document.getElementById("toggle").textContent="▶";}}
+audio.addEventListener("ended",()=>{if(allMode)next();else document.getElementById("toggle").textContent="▶";});
+let tick=0;
+audio.addEventListener("timeupdate",()=>{
+  document.getElementById("nowTime").textContent=fmt(audio.currentTime)+" / "+fmt(audio.duration);
+  if(audio.duration)document.getElementById("seek").value=(audio.currentTime/audio.duration)*100;
+  if(++tick%4===0){save();highlight();}
+});
+function highlight(){
+  const sec=DATA.sections[index];if(!sec)return;
+  let cur=-1;for(let k=0;k<sec.items.length;k++){if(audio.currentTime>=sec.items[k].start)cur=k;else break;}
+  document.querySelectorAll(".ti.live").forEach(e=>e.classList.remove("live"));
+  if(cur>=0){const el=document.querySelector('.ti[data-sec="'+index+'"][data-i="'+cur+'"]');
+    if(el){el.classList.add("live");}}
+}
+audio.addEventListener("loadedmetadata",()=>{
+  if(index>=0)document.getElementById("meta"+index).textContent=DATA.sections[index].count+" 条 · "+fmt(audio.duration);
+});
+audio.addEventListener("pause",save);
+document.getElementById("playAll").onclick=()=>play(0,true);
+document.getElementById("toggle").onclick=()=>{
+  if(index<0){play(0,true);return}
+  if(audio.paused){audio.play();document.getElementById("toggle").textContent="⏸"}
+  else{audio.pause();document.getElementById("toggle").textContent="▶"}
+};
+document.getElementById("prev").onclick=()=>{if(index>0)play(index-1,allMode)};
+document.getElementById("next").onclick=()=>{if(index+1<DATA.sections.length)play(index+1,allMode)};
+document.getElementById("seek").oninput=e=>{if(audio.duration)audio.currentTime=audio.duration*e.target.value/100};
+document.getElementById("resumeBtn").onclick=()=>{const s=saved();if(s){play(s.i,true);audio.currentTime=s.t||0;document.getElementById("resume").style.display="none";}};
+document.getElementById("forgetBtn").onclick=()=>{localStorage.removeItem(KEY);document.getElementById("resume").style.display="none";play(0,true)};
+(function(){const s=saved();if(s&&s.i<DATA.sections.length){
+  document.getElementById("resumeText").innerHTML="上次听到 <b>"+DATA.sections[s.i].emoji+" "
+    +DATA.sections[s.i].name+"</b> 的 "+fmt(s.t)+" 处";
+  document.getElementById("resume").style.display="block";}})();
+(function(){const h=(location.hash||"").replace("#","");if(!h)return;
+  const i=DATA.sections.findIndex(s=>s.key===h);if(i>=0)play(i,false);})();
+</script></body></html>
