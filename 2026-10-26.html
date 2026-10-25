@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>铭鉴早报 · 2026-10-26 浓缩语音版</title>
+<style>
+:root{--bg:#0f1115;--card:#181b21;--line:#262a33;--fg:#e8eaed;--dim:#9aa0a6;--accent:#4c8dff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:16px 14px 140px}
+.wrap{max-width:680px;margin:0 auto}
+h1{font-size:19px;margin:6px 0 2px}
+.sub{color:var(--dim);font-size:13px;margin-bottom:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.resume{display:none;background:linear-gradient(135deg,#1d2b4d,#182031);border-color:#2b4a86}
+.resume b{color:var(--accent)}
+button{font:inherit;color:var(--fg);background:#232833;border:1px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer}
+button:active{transform:scale(.98)}
+.big{width:100%;background:var(--accent);border-color:var(--accent);font-weight:600;font-size:16px;padding:14px}
+.row{display:flex;align-items:center;gap:12px;padding:12px 4px}
+.row .name{flex:1;font-size:15px}
+.row .meta{color:var(--dim);font-size:12px;margin-top:3px}
+.row button{padding:8px 14px;border-radius:20px;background:#2a3040}
+.row.on .name{color:var(--accent)}
+.tr{padding:4px 2px 2px}
+.ti{display:flex;gap:10px;padding:9px 6px;border-bottom:1px solid var(--line);cursor:pointer;border-radius:8px}
+.ti:last-child{border-bottom:0}
+.ti .ts{color:var(--accent);font-size:12px;min-width:42px;padding-top:2px;font-variant-numeric:tabular-nums}
+.ti .tx{flex:1;font-size:14px;line-height:1.65;color:#c9ced6}
+.ti .tx b{color:#e8eaed;font-weight:600}
+.ti .tx p{margin:4px 0 0;color:var(--dim);font-size:13px;line-height:1.6}
+.ti.live{background:#1d2433}
+.ti.live .tx b{color:#8fb8ff}
+details{margin-top:6px}
+summary{color:var(--dim);font-size:13px;cursor:pointer;padding:6px 2px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#12151b;border-top:1px solid var(--line);padding:10px 14px 14px}
+.bar .inner{max-width:680px;margin:0 auto}
+.bar .top{display:flex;justify-content:space-between;font-size:12px;color:var(--dim);margin-bottom:6px}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.ctl{display:flex;align-items:center;gap:10px;margin-top:8px}
+.ctl .t{color:var(--dim);font-size:12px;flex:1;text-align:right}
+</style></head>
+<body><div class="wrap">
+<h1>🎧 铭鉴早报 · 2026-10-26 浓缩语音版</h1>
+<div class="sub">五个板块共约 21 分钟 · 每条讲稿与音频严格对应 · 更新于 10-26 07:47</div>
+<div class="panel resume" id="resume"><span id="resumeText"></span>
+  <div style="margin-top:10px"><button id="resumeBtn">继续上次</button>
+  <button id="forgetBtn">从头开始</button></div></div>
+<div class="panel"><button class="big" id="playAll">▶ 全部播放（约 21 分钟）</button></div>
+<div class="panel" id="list"></div>
+</div>
+<div class="bar"><div class="inner">
+  <div class="top"><span id="nowTitle">未播放</span><span id="nowTime">00:00 / 00:00</span></div>
+  <input type="range" id="seek" min="0" max="100" value="0" step="0.1">
+  <div class="ctl">
+    <button id="prev">⏮</button><button id="toggle">▶</button><button id="next">⏭</button>
+    <span class="t" id="mode">单板块</span>
+  </div>
+</div></div>
+<audio id="audio" preload="metadata"></audio>
+<script>
+const DATA = {"date": "2026-10-26", "sections": [{"key": "tech", "name": "科技", "emoji": "🔬", "count": 10, "items": [{"title": "奕境曾清林谈汽车“终身质保”服务：行业里有很多隐形门槛，如卡里程为的是控制赔付概率", "body": "IT之家 10 月 26 日消息，奕境汽车品牌总经理曾清林今日凌晨发文，谈及了汽车“终身质保”服务。他表示，行业里面的“终身质保”有很多隐形门槛。比如卡里程， 为的就是控制赔付概率，把高频用车、长途通勤的高损耗风险挡在门外 。 曾清林表示，“终身质保”这个词不新鲜， 稀缺的是不带门槛的终身质保 ，高成本大件要。这条来自IT之家。", "speech": "第 1 条，奕境曾清林谈汽车“终身质保”服务：行业里有很多隐形门槛，如卡里程为的是控制赔付概率。IT之家 10 月 26 日消息，奕境汽车品牌总经理曾清林今日凌晨发文，谈及了汽车“终身质保”服务。他表示，行业里面的“终身质保”有很多隐形门槛。比如卡里程， 为的就是控制赔付概率，把高频用车、长途通勤的高损耗风险挡在门外 。 曾清林表示，“终身质保”这个词不新鲜， 稀缺的是不带门槛的终身质保 ，高成本大件要。这条来自IT之家。", "chars": 213, "start": 3.31}, {"title": "60 元打造你的 vibe coding 神器：小米蓝牙遥控器 2 pro", "body": "Matrix首页推荐Matrix是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选Matrix最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者个人观点 ...。这条来自少数派。", "speech": "第 2 条，60 元打造你的 vibe coding 神器：小米蓝牙遥控器 2 pro。Matrix首页推荐Matrix是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选Matrix最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者个人观点 ...。这条来自少数派。", "chars": 157, "start": 41.64}, {"title": "iPhone Duo 2 提前曝光：FaceID、操作按钮和长焦都要回来了", "body": "还没捂热呢。这条来自爱范儿。", "speech": "第 3 条，iPhone Duo 2 提前曝光：FaceID、操作按钮和长焦都要回来了。还没捂热呢。这条来自爱范儿。", "chars": 58, "start": 66.72}, {"title": "玩家呼吁 EA 保住《质量效应》IP，请愿签名数突破 18.7 万", "body": "IT之家 10 月 26 日消息，一份为保住 BioWare 备受喜爱的科幻角色扮演游戏《质量效应》发起的请愿书，签名数量已经超过 18.7 万。 本周早些时候，玩家迎来了 BioWare 令人难过的落幕。在沙特以 550 亿美元 （IT之家注：现汇率约合 3,679.06 亿元人民币） 杠杆收购美国艺电（E。这条来自IT之家。", "speech": "第 4 条，玩家呼吁 EA 保住《质量效应》IP，请愿签名数突破 18.7 万。IT之家 10 月 26 日消息，一份为保住 BioWare 备受喜爱的科幻角色扮演游戏《质量效应》发起的请愿书，签名数量已经超过 18.7 万。 本周早些时候，玩家迎来了 BioWare 令人难过的落幕。在沙特以 550 亿美元 （IT之家注：现汇率约合 3,679.06 亿元人民币） 杠杆收购美国艺电（E。这条来自IT之家。", "chars": 205, "start": 76.1}, {"title": "现代汽车和起亚在华单月合计销量今年来首次跌破 1 万辆，市占率降至 0.6%", "body": "IT之家 10 月 26 日消息，据韩联社报道，韩国汽车巨头现代汽车和起亚在华单月合计销量跌破 1 万辆，合计市占率也降至 0.6%。 韩亚证券分析报告显示，9 月现代汽车和起亚在华零售量分别约为 4000 辆和 5000 辆，同比分别减少 47% 和 31%。两家公司合计销量同比减少 39%，约为 9000。", "speech": "第 5 条，现代汽车和起亚在华单月合计销量今年来首次跌破 1 万辆，市占率降至 0.6%。IT之家 10 月 26 日消息，据韩联社报道，韩国汽车巨头现代汽车和起亚在华单月合计销量跌破 1 万辆，合计市占率也降至 0.6%。 韩亚证券分析报告显示，9 月现代汽车和起亚在华零售量分别约为 4000 辆和 5000 辆，同比分别减少 47% 和 31%。两家公司合计销量同比减少 39%，约为 9000。", "chars": 201, "start": 109.34}, {"title": "马斯克的 Grok 发布 AI 版《奥德赛》前 7 分钟内容，被指缺乏艺术感染力", "body": "IT之家 10 月 26 日消息，就在埃隆 · 马斯克（Elon Musk）宣称 Grok 将推出一部完整、“符合历史”的《奥德赛》电影三个月之后，Grok 放出了其前七分钟内容，并将其称作《奥德赛》系列第一集。 马斯克此前曾公开抨击克里斯托弗 · 诺兰（Christopher Nolan）执导的《奥德赛》。", "speech": "第 6 条，马斯克的 Grok 发布 AI 版《奥德赛》前 7 分钟内容，被指缺乏艺术感染力。IT之家 10 月 26 日消息，就在埃隆 · 马斯克（Elon Musk）宣称 Grok 将推出一部完整、“符合历史”的《奥德赛》电影三个月之后，Grok 放出了其前七分钟内容，并将其称作《奥德赛》系列第一集。 马斯克此前曾公开抨击克里斯托弗 · 诺兰（Christopher Nolan）执导的《奥德赛》。", "chars": 202, "start": 145.68}, {"title": "AI“专属保险”：全国首个人工智能应用风险综合保障方案正式发布", "body": "IT之家 10 月 26 日消息，据央视财经报道，在近期结束的 2026 金融街论坛年会上， 全国首个人工智能应用风险综合保障方案正式发布。 通过保险产品分别对人工智能服务给第三方造成的损失，和人工智能供应方自身费用损失进行保障， 填补国内 AI 保险市场空白 。 IT之家注意到，AI 正在接管越来越多的事情。", "speech": "第 7 条，AI“专属保险”：全国首个人工智能应用风险综合保障方案正式发布。IT之家 10 月 26 日消息，据央视财经报道，在近期结束的 2026 金融街论坛年会上， 全国首个人工智能应用风险综合保障方案正式发布。 通过保险产品分别对人工智能服务给第三方造成的损失，和人工智能供应方自身费用损失进行保障， 填补国内 AI 保险市场空白 。 IT之家注意到，AI 正在接管越来越多的事情。", "chars": 194, "start": 173.62}, {"title": "苹果 iPhone Duo 新增快捷指令，展开和折叠时可触发预设操作", "body": "IT之家 10 月 26 日消息，iPhone Duo 新增了一条快捷指令自动化触发条件，设备展开或折叠时就能自动执行预设操作。 视频博主斯蒂芬 · 罗夫莱斯（Stephen Robles）发现了这项功能，该触发条件名为“展开或折叠”，位于显示类自动化选项之下。早在九月，代码挖掘者 pdfu 就已经在 iPh。", "speech": "第 8 条，苹果 iPhone Duo 新增快捷指令，展开和折叠时可触发预设操作。IT之家 10 月 26 日消息，iPhone Duo 新增了一条快捷指令自动化触发条件，设备展开或折叠时就能自动执行预设操作。 视频博主斯蒂芬 · 罗夫莱斯（Stephen Robles）发现了这项功能，该触发条件名为“展开或折叠”，位于显示类自动化选项之下。早在九月，代码挖掘者 pdfu 就已经在 iPh。", "chars": 197, "start": 207.43}, {"title": "早报，微信初步适配iPhone Duo，仍不能平板登录/全球PC出货下降21%/何刚出任华", "body": "· 黄仁勋：对长鑫合作持开放态度，不认为 2029 年内存会过剩 · 沃尔沃汽车拟全球裁减约 2500 个岗位 · 华为 Pura90 Plus 开启预订。这条来自爱范儿。", "speech": "第 9 条，早报，微信初步适配iPhone Duo，仍不能平板登录/全球PC出货下降21%/何刚出任华。· 黄仁勋：对长鑫合作持开放态度，不认为 2029 年内存会过剩 · 沃尔沃汽车拟全球裁减约 2500 个岗位 · 华为 Pura90 Plus 开启预订。这条来自爱范儿。", "chars": 138, "start": 238.58}, {"title": "iFixit 拆解苹果 iPhone Duo：初步锁定折叠屏故障潜在诱因", "body": "IT之家 10 月 26 日消息，iFixit 已经完成了对苹果 iPhone Duo 的拆解，曝出不少亮点，也发现了一些隐患，这款机型被该机构称为目前可维修性最强的折叠屏手机。 IT之家注意到，在本次拆解的众多发现里，最让人惊喜的当属可维修性评分：这款机型拿到了满分 10 分里的 5 分，创下 iFixit。这条来自IT之家。", "speech": "第 10 条，iFixit 拆解苹果 iPhone Duo：初步锁定折叠屏故障潜在诱因。IT之家 10 月 26 日消息，iFixit 已经完成了对苹果 iPhone Duo 的拆解，曝出不少亮点，也发现了一些隐患，这款机型被该机构称为目前可维修性最强的折叠屏手机。 IT之家注意到，在本次拆解的众多发现里，最让人惊喜的当属可维修性评分：这款机型拿到了满分 10 分里的 5 分，创下 iFixit。这条来自IT之家。", "chars": 209, "start": 261.29}], "seconds": 296.5, "rate": "+12%", "file": "https://cdn.jsdelivr.net/gh/liuyang987695908-spec/mingjian-audio@main/audio/2026-10-26/tech.mp3?v=20261026074709", "backup": "audio/2026-10-26/tech.mp3?v=20261026074709"}, {"key": "culture", "name": "人文", "emoji": "🎭", "count": 15, "items": [{"title": "历史上的今天，1937年10月26日，“八百壮士”死守四行仓库", "body": "这条来自澎湃思想。", "speech": "第 1 条，历史上的今天，1937年10月26日，“八百壮士”死守四行仓库。这条来自澎湃思想。", "chars": 47, "start": 3.43}, {"title": "守千年技艺 绘傣陶新章：一位西双版纳女陶艺师的“新纹样”", "body": "中新网云南西双版纳10月25日电 题：守千年技艺 绘傣陶新章：一位西双版纳女陶艺师的“新纹样”。这条来自中新网文化。", "speech": "第 2 条，守千年技艺 绘傣陶新章：一位西双版纳女陶艺师的“新纹样”。中新网云南西双版纳10月25日电 题：守千年技艺 绘傣陶新章：一位西双版纳女陶艺师的“新纹样”。这条来自中新网文化。", "chars": 93, "start": 12.55}, {"title": "达古冰川“盖被子”6年：局部“长高”10厘米，一场为冰川争取时间的试验", "body": "这条来自澎湃思想。", "speech": "第 3 条，达古冰川“盖被子”6年：局部“长高”10厘米，一场为冰川争取时间的试验。这条来自澎湃思想。", "chars": 51, "start": 29.57}, {"title": "解锁八桂鱼鲜密码 《在广西吃鱼》新书南宁首发", "body": "中新网南宁10月25日电(记者 林艳华)10月25日，由广西壮族自治区水产技术推广站组织编写，吴伟峰、李坚明编著，广西民族出版社出版的《在广西吃鱼》新书首发仪式在南宁举行。该书甄选88种鱼类、收录33项特色鱼食俗，全景解码广西鱼文化，以美食为媒赋能文旅融合发展。这条来自中新网文化。", "speech": "第 4 条，解锁八桂鱼鲜密码 《在广西吃鱼》新书南宁首发。中新网南宁10月25日电(记者 林艳华)10月25日，由广西壮族自治区水产技术推广站组织编写，吴伟峰、李坚明编著，广西民族出版社出版的《在广西吃鱼》新书首发仪式在南宁举行。该书甄选88种鱼类、收录33项特色鱼食俗，全景解码广西鱼文化，以美食为媒赋能文旅融合发展。这条来自中新网文化。", "chars": 170, "start": 38.74}, {"title": "曾经顶流，马景涛：回望顶流岁月，“纯粹年代”真的谢幕了吗", "body": "这条来自澎湃思想。", "speech": "第 5 条，曾经顶流，马景涛：回望顶流岁月，“纯粹年代”真的谢幕了吗。这条来自澎湃思想。", "chars": 44, "start": 71.4}, {"title": "专访美国大都会艺术博物馆专家：创新合作模式、共同保护文物", "body": "中新社北京10月25日电 (记者 应妮)在北京中国工艺美术馆看到《药师佛佛会图》临摹作品第一眼，美国大都会艺术博物馆亚洲艺术部中国艺术主任孙志新的感受是“震撼”。25日，在“中国古代壁画艺术学术研讨会”间隙，孙志新接受了中新社专访。这条来自中新网文化。", "speech": "第 6 条，专访美国大都会艺术博物馆专家：创新合作模式、共同保护文物。中新社北京10月25日电 (记者 应妮)在北京中国工艺美术馆看到《药师佛佛会图》临摹作品第一眼，美国大都会艺术博物馆亚洲艺术部中国艺术主任孙志新的感受是“震撼”。25日，在“中国古代壁画艺术学术研讨会”间隙，孙志新接受了中新社专访。这条来自中新网文化。", "chars": 161, "start": 79.66}, {"title": "人民日报调查净水器“坑老”骗局：声称能治“三高”“抗癌”，实为“三无”产品", "body": "这条来自澎湃思想。", "speech": "第 7 条，人民日报调查净水器“坑老”骗局：声称能治“三高”“抗癌”，实为“三无”产品。这条来自澎湃思想。", "chars": 53, "start": 109.06}, {"title": "范稳《青云梯》：从百年铁路到时代与人", "body": "中新网北京10月25日电 (记者 高凯)“一百年前的铁路就像今天的互联网，谁先拥有铁路谁就先拥有话语权，铁路开到哪里，工业、商业和一连串社会变化便跟到哪里。从中可以看到时代的发展与变迁。”谈及长篇新作《青云梯》，作家范稳这样说。这条来自中新网文化。", "speech": "第 8 条，范稳《青云梯》：从百年铁路到时代与人。中新网北京10月25日电 (记者 高凯)“一百年前的铁路就像今天的互联网，谁先拥有铁路谁就先拥有话语权，铁路开到哪里，工业、商业和一连串社会变化便跟到哪里。从中可以看到时代的发展与变迁。”谈及长篇新作《青云梯》，作家范稳这样说。这条来自中新网文化。", "chars": 149, "start": 118.42}, {"title": "经济日报：“养砖头”为什么戳中年轻人", "body": "这条来自澎湃思想。", "speech": "第 9 条，经济日报：“养砖头”为什么戳中年轻人。这条来自澎湃思想。", "chars": 34, "start": 146.21}, {"title": "专家学者共聚重庆探讨非物质文化遗产学科定位与专业建设", "body": "中新网重庆10月25日电 “从‘进校园’到‘在校园’——第二届非物质文化遗产学科定位与专业建设研讨会”日前在重庆举办。来自全国已开设非物质文化遗产保护本科专业的高校、相关职业院校、开展“非遗进校园”的中小学相关负责人代表以及专家学者围绕非遗学科定位、专业建设、人才培养及融入国民教育体系等议题展开深入研讨。这条来自中新网文化。", "speech": "第 10 条，专家学者共聚重庆探讨非物质文化遗产学科定位与专业建设。中新网重庆10月25日电 “从‘进校园’到‘在校园’——第二届非物质文化遗产学科定位与专业建设研讨会”日前在重庆举办。来自全国已开设非物质文化遗产保护本科专业的高校、相关职业院校、开展“非遗进校园”的中小学相关负责人代表以及专家学者围绕非遗学科定位、专业建设、人才培养及融入国民教育体系等议题展开深入研讨。这条来自中新网文化。", "chars": 197, "start": 152.81}, {"title": "面对面丨让荣耀不再沉默，揭秘在台隐蔽战线英烈往事", "body": "这条来自澎湃思想。", "speech": "第 11 条，面对面丨让荣耀不再沉默，揭秘在台隐蔽战线英烈往事。这条来自澎湃思想。", "chars": 41, "start": 188.98}, {"title": "当代舞《禾戏剧·大师之夜》走进清华大学", "body": "中新网北京10月25日电 10月23日至24日，由禾生文化·禾戏剧出品制作的当代舞《禾戏剧·大师之夜》走进清华大学，在新清华学堂连演两场。项目将以当代舞为媒介，连接国际艺术视野与高校青年文化，为校园美育注入多元艺术活力。这条来自中新网文化。", "speech": "第 12 条，当代舞《禾戏剧·大师之夜》走进清华大学。中新网北京10月25日电 10月23日至24日，由禾生文化·禾戏剧出品制作的当代舞《禾戏剧·大师之夜》走进清华大学，在新清华学堂连演两场。项目将以当代舞为媒介，连接国际艺术视野与高校青年文化，为校园美育注入多元艺术活力。这条来自中新网文化。", "chars": 147, "start": 197.18}, {"title": "媒体：电子屏“示众”欠费业主，物业催费何必走偏门", "body": "这条来自澎湃思想。", "speech": "第 13 条，媒体：电子屏“示众”欠费业主，物业催费何必走偏门。这条来自澎湃思想。", "chars": 41, "start": 225.43}, {"title": "银川凤凰公园赴秋约：书香市集解锁阅读新体验", "body": "中新网银川10月25日电 (记者 李佩珊)10月25日，宁夏图书馆“拾叶知秋·阅见宁夏”文旅市集在银川凤凰公园开市。作为“阅游宁夏”全民阅读文旅融合项目重要板块，市集把阅读、非遗、自然科普、艺术体验搬进秋日公园，吸引众多市民、亲子家庭前来打卡体验。这条来自中新网文化。", "speech": "第 14 条，银川凤凰公园赴秋约：书香市集解锁阅读新体验。中新网银川10月25日电 (记者 李佩珊)10月25日，宁夏图书馆“拾叶知秋·阅见宁夏”文旅市集在银川凤凰公园开市。作为“阅游宁夏”全民阅读文旅融合项目重要板块，市集把阅读、非遗、自然科普、艺术体验搬进秋日公园，吸引众多市民、亲子家庭前来打卡体验。这条来自中新网文化。", "chars": 163, "start": 233.69}, {"title": "响应式运营、接驳提质、适老化升级，多地探索公交新模式", "body": "这条来自澎湃思想。", "speech": "第 15 条，响应式运营、接驳提质、适老化升级，多地探索公交新模式。这条来自澎湃思想。", "chars": 43, "start": 264.31}], "seconds": 275.0, "rate": "+12%", "file": "https://cdn.jsdelivr.net/gh/liuyang987695908-spec/mingjian-audio@main/audio/2026-10-26/culture.mp3?v=20261026074709", "backup": "audio/2026-10-26/culture.mp3?v=20261026074709"}, {"key": "book", "name": "书籍", "emoji": "📚", "count": 10, "items": [{"title": "凝神时刻", "body": "《凝神时刻》收录了十篇文学批评与异国行旅交织的随笔。从都柏林、伦敦到巴塞罗那、伊斯坦布尔，邓安庆并不满足于做一个路过风景的游客，而是带着那些曾深刻影响他阅读与写作的作品，走进托宾、马尔克斯、帕慕克等作家曾经生活与创作的空间。邓安庆，2026-9，浙江文艺出版社，52.00元，平装。这条来自豆瓣新书速递。", "speech": "第 1 条，凝神时刻。《凝神时刻》收录了十篇文学批评与异国行旅交织的随笔。从都柏林、伦敦到巴塞罗那、伊斯坦布尔，邓安庆并不满足于做一个路过风景的游客，而是带着那些曾深刻影响他阅读与写作的作品，走进托宾、马尔克斯、帕慕克等作家曾经生活与创作的空间。邓安庆，2026-9，浙江文艺出版社，52.00元，平装。这条来自豆瓣新书速递。", "chars": 163, "start": 3.34}, {"title": "落在我身上的雨", "body": "《四个春天》后，陆庆屹全新文学作品。一本温柔又辽阔的浮生手记，书写跨越余生的重逢。陆庆屹，2026-8，新星出版社，59.00元，平装。这条来自豆瓣图书榜。", "speech": "第 2 条，落在我身上的雨。《四个春天》后，陆庆屹全新文学作品。一本温柔又辽阔的浮生手记，书写跨越余生的重逢。陆庆屹，2026-8，新星出版社，59.00元，平装。这条来自豆瓣图书榜。", "chars": 92, "start": 35.06}, {"title": "翅膀", "body": "诺贝尔文学奖得主韩江《素食者》灵感源头作家。韩国现代主义文学dian峰李箱短篇小说集。韩国人蕞喜欢的短篇小说之一，李箱短篇小说首部中文译本。* 随身短经典文库002。* “我想，你也有一双长不出来的翅膀。”。[韩]李箱，2026-9，江苏凤凰文艺出版社，36，平装。这条来自豆瓣新书速递。", "speech": "第 3 条，翅膀。诺贝尔文学奖得主韩江《素食者》灵感源头作家。韩国现代主义文学dian峰李箱短篇小说集。韩国人蕞喜欢的短篇小说之一，李箱短篇小说首部中文译本。* 随身短经典文库002。* “我想，你也有一双长不出来的翅膀。”。[韩]李箱，2026-9，江苏凤凰文艺出版社，36，平装。这条来自豆瓣新书速递。", "chars": 153, "start": 53.45}, {"title": "无论如何，潜水", "body": "韩国新生代女性主义代表人物、作家、地球科学学者河美娜，治愈系随笔作品，中文世界首度引进。这是一部超越了运动范畴的生命随笔集。河美娜，2026-7，广西师大出版社，49.8，平装。这条来自豆瓣图书榜。", "speech": "第 4 条，无论如何，潜水。韩国新生代女性主义代表人物、作家、地球科学学者河美娜，治愈系随笔作品，中文世界首度引进。这是一部超越了运动范畴的生命随笔集。河美娜，2026-7，广西师大出版社，49.8，平装。这条来自豆瓣图书榜。", "chars": 113, "start": 83.66}, {"title": "昨日清晨", "body": "而我的起点却起身迎接我。”《暮色将尽》之前，刚过八旬的阿西尔温柔回望童年。打捞那些泛着柔光的旧日碎片。为自己编织出一场幻影憧憧的童年梦核：。静谧、光线、色彩、气息。——真的很快啊！——一切就将消逝。[英] 戴安娜·阿西尔，2026-9，江苏凤凰文艺出版社，49.80元，精装。这条来自豆瓣新书速递。", "speech": "第 5 条，昨日清晨。而我的起点却起身迎接我。”《暮色将尽》之前，刚过八旬的阿西尔温柔回望童年。打捞那些泛着柔光的旧日碎片。为自己编织出一场幻影憧憧的童年梦核：。静谧、光线、色彩、气息。——真的很快啊！——一切就将消逝。[英] 戴安娜·阿西尔，2026-9，江苏凤凰文艺出版社，49.80元，精装。这条来自豆瓣新书速递。", "chars": 160, "start": 106.87}, {"title": "爱的辛劳：一名心理咨询师见证的欲望、创伤与人间", "body": "关于爱，我们常常自欺；要看清自己与他人，必须付出辛劳。浓缩40年心理治疗经验，细腻拆解情感关系中的谜团。揭示自我、家庭、事业、抉择中的众多幽深面向。严艺家作序推荐。透过关乎人生全部真谛的“爱”，揭示自我、情感、人际关系中的众多幽深面向。[美] 斯蒂芬·格罗斯，2026-7，上海三联书店，49.00元，平装。这条来自豆瓣图书榜。", "speech": "第 6 条，爱的辛劳：一名心理咨询师见证的欲望、创伤与人间。关于爱，我们常常自欺；要看清自己与他人，必须付出辛劳。浓缩40年心理治疗经验，细腻拆解情感关系中的谜团。揭示自我、家庭、事业、抉择中的众多幽深面向。严艺家作序推荐。透过关乎人生全部真谛的“爱”，揭示自我、情感、人际关系中的众多幽深面向。[美] 斯蒂芬·格罗斯，2026-7，上海三联书店，49.00元，平装。这条来自豆瓣图书榜。", "chars": 194, "start": 138.79}, {"title": "“批评”的想象力：大江健三郎、柄谷行人与“政治的季节”", "body": "二战以后，在冷战的背景下，日本逐步被整合到美国的东亚战略布局中，但这种状况也催生了一系列抵抗性的反体制运动，其中1960年代前后尤为突出，故有“政治的季节”之称。高华鑫，2026-9，生活·读书·新知三联书店，精装。这条来自豆瓣新书速递。", "speech": "第 7 条，“批评”的想象力：大江健三郎、柄谷行人与“政治的季节”。二战以后，在冷战的背景下，日本逐步被整合到美国的东亚战略布局中，但这种状况也催生了一系列抵抗性的反体制运动，其中1960年代前后尤为突出，故有“政治的季节”之称。高华鑫，2026-9，生活·读书·新知三联书店，精装。这条来自豆瓣新书速递。", "chars": 153, "start": 177.6}, {"title": "啸风山庄：插图袖珍本", "body": "《呼啸山庄》全新译本，资深译者赖慈芸口碑之作。 24幅精美插图 × 200+条注释 × 万字导读 × 深度作品解析。人物关系图 + 地图 + 作者年表 + 彩绘全景图 + 小说年表 + 纪念藏书票。[英] 艾米莉·勃朗特，2026-8，九州出版社，65.00元，平装 活腔 锁线。这条来自豆瓣图书榜。", "speech": "第 8 条，啸风山庄：插图袖珍本。《呼啸山庄》全新译本，资深译者赖慈芸口碑之作。 24幅精美插图 × 200+条注释 × 万字导读 × 深度作品解析。人物关系图 + 地图 + 作者年表 + 彩绘全景图 + 小说年表 + 纪念藏书票。[英] 艾米莉·勃朗特，2026-8，九州出版社，65.00元，平装 活腔 锁线。这条来自豆瓣图书榜。", "chars": 167, "start": 205.97}, {"title": "诗词格律：精装典藏纪念版", "body": "格律本来是适应艺术的要求而产生的，我们先要熟谙格律，从而才能做到得心应手地驱遣格律，而不为格律所束缚。为此，著名语言学家王力在前人研究成果的基础上，加上自己的意见，编写出这本讲解诗词格律知识的小书。王力，2026-9，岳麓书社，56.00元，精装。这条来自豆瓣新书速递。", "speech": "第 9 条，诗词格律：精装典藏纪念版。格律本来是适应艺术的要求而产生的，我们先要熟谙格律，从而才能做到得心应手地驱遣格律，而不为格律所束缚。为此，著名语言学家王力在前人研究成果的基础上，加上自己的意见，编写出这本讲解诗词格律知识的小书。王力，2026-9，岳麓书社，56.00元，精装。这条来自豆瓣新书速递。", "chars": 154, "start": 236.93}, {"title": "恐龙的移动轨迹", "body": "我们，还没有灭绝。”。突破性别框架，书写不被定义的亲密关系。4万+读者票选的韩国人气作家。人类幽微情感的天才捕手——金和珍。短篇代表作，简中首次引进！首刷限定！随书赠PVC心之透卡。[韩] 金和珍，2026-8，广西师范大学出版社，48，平装。这条来自豆瓣图书榜。", "speech": "第 10 条，恐龙的移动轨迹。我们，还没有灭绝。”。突破性别框架，书写不被定义的亲密关系。4万+读者票选的韩国人气作家。人类幽微情感的天才捕手——金和珍。短篇代表作，简中首次引进！首刷限定！随书赠PVC心之透卡。[韩] 金和珍，2026-8，广西师范大学出版社，48，平装。这条来自豆瓣图书榜。", "chars": 147, "start": 266.9}], "seconds": 299.2, "rate": "+12%", "file": "https://cdn.jsdelivr.net/gh/liuyang987695908-spec/mingjian-audio@main/audio/2026-10-26/book.mp3?v=20261026074709", "backup": "audio/2026-10-26/book.mp3?v=20261026074709"}, {"key": "music", "name": "音乐", "emoji": "🎵", "count": 12, "items": [{"title": "一张相片", "body": "连麻Swimming 演唱，收录在专辑《斩鸭线》。这条来自网易云·热歌榜。", "speech": "热歌榜第 1 名，《一张相片》，连麻Swimming 演唱，收录在专辑《斩鸭线》。这条来自网易云·热歌榜。", "chars": 53, "start": 4.9}, {"title": "你", "body": "郑润泽 演唱，收录在专辑《你》。", "speech": "热歌榜第 2 名，《你》，郑润泽 演唱，收录在专辑《你》。", "chars": 29, "start": 16.92}, {"title": "双", "body": "连麻Swimming 演唱，收录在专辑《斩鸭线》。", "speech": "热歌榜第 3 名，《双》，连麻Swimming 演唱，收录在专辑《斩鸭线》。", "chars": 38, "start": 23.69}, {"title": "†TAKEDISKRUSH!†（嘉豪进行曲）", "body": "N2UtheHartlocker 演唱，收录在专辑《†TAKEDISKRUSH!†（三角洲行动二洲年宣传片BGM）》。这条来自网易云·飙升榜。", "speech": "热歌榜第 4 名，《†TAKEDISKRUSH!†（嘉豪进行曲）》，N2UtheHartlocker 演唱，收录在专辑《†TAKEDISKRUSH!†（三角洲行动二洲年宣传片BGM）》。这条来自网易云·飙升榜。", "chars": 105, "start": 31.49}, {"title": "大理出奇迹", "body": "连麻Swimming 演唱，收录在专辑《斩鸭线》。", "speech": "热歌榜第 5 名，《大理出奇迹》，连麻Swimming 演唱，收录在专辑《斩鸭线》。", "chars": 42, "start": 51.58}, {"title": "撒哈拉的暴雨", "body": "连麻Swimming 演唱，收录在专辑《斩鸭线》。", "speech": "热歌榜第 6 名，《撒哈拉的暴雨》，连麻Swimming 演唱，收录在专辑《斩鸭线》。", "chars": 43, "start": 60.14}, {"title": "王子系变装", "body": "圈圈菌 演唱，收录在专辑《王子系变装》。", "speech": "热歌榜第 7 名，《王子系变装》，圈圈菌 演唱，收录在专辑《王子系变装》。", "chars": 37, "start": 69.0}, {"title": "Gangsta Don’t Lie", "body": "连麻Swimming 演唱，收录在专辑《斩鸭线》。", "speech": "热歌榜第 8 名，《Gangsta Don’t Lie》，连麻Swimming 演唱，收录在专辑《斩鸭线》。", "chars": 54, "start": 78.41}, {"title": "燕子飞", "body": "连麻Swimming 演唱，收录在专辑《斩鸭线》。", "speech": "热歌榜第 9 名，《燕子飞》，连麻Swimming 演唱，收录在专辑《斩鸭线》。", "chars": 40, "start": 87.02}, {"title": "Undefined", "body": "PerVade、第五人格 演唱，收录在专辑《Undefined》。", "speech": "热歌榜第 10 名，《Undefined》，PerVade、第五人格 演唱，收录在专辑《Undefined》。", "chars": 55, "start": 95.28}, {"title": "Gasoline (Remix)", "body": "Passat 演唱，收录在专辑《Gasoline (Remix)》。", "speech": "热歌榜第 11 名，《Gasoline (Remix)》，Passat 演唱，收录在专辑《Gasoline (Remix)》。", "chars": 63, "start": 104.9}, {"title": "忧郁幻昼 (Abyss Mix)", "body": "KAYZEN、KORVAX 演唱，收录在专辑《Rule (幻昼忧郁版)》。", "speech": "热歌榜第 12 名，《忧郁幻昼 (Abyss Mix)》，KAYZEN、KORVAX 演唱，收录在专辑《Rule (幻昼忧郁版)》。", "chars": 66, "start": 113.9}], "seconds": 128.2, "rate": "-22%", "file": "https://cdn.jsdelivr.net/gh/liuyang987695908-spec/mingjian-audio@main/audio/2026-10-26/music.mp3?v=20261026074709", "backup": "audio/2026-10-26/music.mp3?v=20261026074709"}, {"key": "hot", "name": "实时热点", "emoji": "🔥", "count": 30, "items": [{"title": "巴萨1比2皇马", "body": "这条来自微博热搜。", "speech": "第 1 条，巴萨1比2皇马。这条来自微博热搜。", "chars": 23, "start": 3.91}, {"title": "S16 瑞士轮 HLE 0-1 iG，如何评价这场比赛", "body": "这条来自知乎热榜。", "speech": "第 2 条，S16 瑞士轮 HLE 0-1 iG，如何评价这场比赛。这条来自知乎热榜。", "chars": 43, "start": 8.62}, {"title": "IG战胜HLE", "body": "这条来自抖音热点。", "speech": "第 3 条，IG战胜HLE。这条来自抖音热点。", "chars": 23, "start": 16.44}, {"title": "县委书记回应被扔下水：张雪临时起意", "body": "这条来自百度热搜。", "speech": "第 4 条，县委书记回应被扔下水：张雪临时起意。这条来自百度热搜。", "chars": 33, "start": 21.48}, {"title": "369 首胜赛后采访称「希望 ZUIAN 签证抓紧办，速速来美国帮我」对此你有什么想说的", "body": "这条来自知乎热榜。", "speech": "第 5 条，369 首胜赛后采访称「希望 ZUIAN 签证抓紧办，速速来美国帮我」对此你有什么想说的。这条来自知乎热榜。", "chars": 60, "start": 28.42}, {"title": "意甲AC米兰2:0乌迪内斯", "body": "这条来自抖音热点。", "speech": "第 6 条，意甲AC米兰2:0乌迪内斯。这条来自抖音热点。", "chars": 29, "start": 39.1}, {"title": "大家用 WorkBuddy 都用来干啥", "body": "这条来自知乎热榜。", "speech": "第 7 条，大家用 WorkBuddy 都用来干啥。这条来自知乎热榜。", "chars": 35, "start": 45.05}, {"title": "引江补汉工程有多硬核", "body": "这条来自抖音热点。", "speech": "第 8 条，引江补汉工程有多硬核。这条来自抖音热点。", "chars": 26, "start": 50.66}, {"title": "「赐死七万精锐铁骑」、「送太子和亲」、「冻死兵部尚书」，古偶为什么总是出现逆天剧情", "body": "这条来自知乎热榜。", "speech": "第 9 条，「赐死七万精锐铁骑」、「送太子和亲」、「冻死兵部尚书」，古偶为什么总是出现逆天剧情。这条来自知乎热榜。", "chars": 57, "start": 56.09}, {"title": "奥巴马中期选举首秀抨击特朗普", "body": "这条来自抖音热点。", "speech": "第 10 条，奥巴马中期选举首秀抨击特朗普。这条来自抖音热点。", "chars": 31, "start": 66.22}, {"title": "毛不易如何公关才能应对这次的「婚礼致辞」事件", "body": "这条来自知乎热榜。", "speech": "第 11 条，毛不易如何公关才能应对这次的「婚礼致辞」事件。这条来自知乎热榜。", "chars": 39, "start": 72.5}, {"title": "跟着现在就出发玩转九寨沟", "body": "这条来自抖音热点。", "speech": "第 12 条，跟着现在就出发玩转九寨沟。这条来自抖音热点。", "chars": 29, "start": 79.61}, {"title": "乒乓球亚锦赛女单决赛，陈熠 3-0 张本美和，夺得冠军，如何评价这场比赛", "body": "这条来自知乎热榜。", "speech": "第 13 条，乒乓球亚锦赛女单决赛，陈熠 3-0 张本美和，夺得冠军，如何评价这场比赛。这条来自知乎热榜。", "chars": 53, "start": 85.34}, {"title": "陈熠3:0战胜张本美和夺冠", "body": "这条来自抖音热点。", "speech": "第 14 条，陈熠3:0战胜张本美和夺冠。这条来自抖音热点。", "chars": 30, "start": 95.47}, {"title": "如何看待周星驰《功夫女足》在烂番茄开分 0 分", "body": "这条来自知乎热榜。", "speech": "第 15 条，如何看待周星驰《功夫女足》在烂番茄开分 0 分。这条来自知乎热榜。", "chars": 40, "start": 101.57}, {"title": "iPhone Duo防尘测试翻车", "body": "这条来自抖音热点。", "speech": "第 16 条，iPhone Duo防尘测试翻车。这条来自抖音热点。", "chars": 33, "start": 108.86}, {"title": "江苏姑娘花 3.8 万网购鹤岗房，入住后屋顶漏水正起诉解约，问题出在哪？鹤岗热潮至今，人们", "body": "这条来自知乎热榜。", "speech": "第 17 条，江苏姑娘花 3.8 万网购鹤岗房，入住后屋顶漏水正起诉解约，问题出在哪？鹤岗热潮至今，人们。这条来自知乎热榜。", "chars": 62, "start": 114.36}, {"title": "Jason吴梦泪王不见王合拍", "body": "这条来自抖音热点。", "speech": "第 18 条，Jason吴梦泪王不见王合拍。这条来自抖音热点。", "chars": 31, "start": 126.5}, {"title": "如何看待张雪机车成功挑战摩托车水上漂 40 公里吉尼斯世界纪录？这对硬件和技术有怎样的要求", "body": "这条来自知乎热榜。", "speech": "第 19 条，如何看待张雪机车成功挑战摩托车水上漂 40 公里吉尼斯世界纪录？这对硬件和技术有怎样的要求。这条来自知乎热榜。", "chars": 62, "start": 132.26}, {"title": "2026王者荣耀共创之夜", "body": "这条来自抖音热点。", "speech": "第 20 条，2026王者荣耀共创之夜。这条来自抖音热点。", "chars": 29, "start": 144.34}, {"title": "如何看待夫妻携 242 枚商周至民国时期钱币出国，想送给国外定居子女，被海关查扣", "body": "这条来自知乎热榜。", "speech": "第 21 条，如何看待夫妻携 242 枚商周至民国时期钱币出国，想送给国外定居子女，被海关查扣。这条来自知乎热榜。", "chars": 57, "start": 150.05}, {"title": "张雪机车刷新水上漂吉尼斯纪录", "body": "这条来自抖音热点。", "speech": "第 22 条，张雪机车刷新水上漂吉尼斯纪录。这条来自抖音热点。", "chars": 31, "start": 161.42}, {"title": "如何看待蔡康永发文称「我没有支持过台独，参加活动是为了采集访谈资讯」", "body": "这条来自知乎热榜。", "speech": "第 23 条，如何看待蔡康永发文称「我没有支持过台独，参加活动是为了采集访谈资讯」。这条来自知乎热榜。", "chars": 51, "start": 167.86}, {"title": "A股指数调整10月26日落地", "body": "这条来自抖音热点。", "speech": "第 24 条，A股指数调整10月26日落地。这条来自抖音热点。", "chars": 31, "start": 177.58}, {"title": "S16 瑞士轮 G2 0:1 TES，如何评价这场比赛", "body": "这条来自知乎热榜。", "speech": "第 25 条，S16 瑞士轮 G2 0:1 TES，如何评价这场比赛。这条来自知乎热榜。", "chars": 44, "start": 183.74}, {"title": "横店微短剧之夜", "body": "这条来自抖音热点。", "speech": "第 26 条，横店微短剧之夜。这条来自抖音热点。", "chars": 24, "start": 191.64}, {"title": "热播日剧把中国人拍成施暴者，设计中方人员对日本情报人员切指、刺穿腹部情节，为何娱乐化包装的", "body": "这条来自知乎热榜。", "speech": "第 27 条，热播日剧把中国人拍成施暴者，设计中方人员对日本情报人员切指、刺穿腹部情节，为何娱乐化包装的。这条来自知乎热榜。", "chars": 62, "start": 196.68}, {"title": "“地震生命三角区”不靠谱", "body": "这条来自抖音热点。", "speech": "第 28 条，“地震生命三角区”不靠谱。这条来自抖音热点。", "chars": 29, "start": 208.9}, {"title": "如何看待小鹏副总裁称「老登」不指向用户，被喊「老登」的高管在内部反复表扬，该员工将继续站在", "body": "这条来自知乎热榜。", "speech": "第 29 条，如何看待小鹏副总裁称「老登」不指向用户，被喊「老登」的高管在内部反复表扬，该员工将继续站在。这条来自知乎热榜。", "chars": 62, "start": 214.58}, {"title": "超级武将杯S2开赛", "body": "这条来自抖音热点。", "speech": "第 30 条，超级武将杯S2开赛。这条来自抖音热点。", "chars": 26, "start": 226.15}], "seconds": 233.9, "rate": "+12%", "file": "https://cdn.jsdelivr.net/gh/liuyang987695908-spec/mingjian-audio@main/audio/2026-10-26/hot.mp3?v=20261026074709", "backup": "audio/2026-10-26/hot.mp3?v=20261026074709"}]};
+const KEY = "mingjian-" + DATA.date;
+const audio = document.getElementById("audio");
+let index = -1, allMode = false;
+
+function fmt(s){s=Math.max(0,Math.floor(s||0));return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");}
+function saved(){try{return JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){return null}}
+function save(){if(index<0)return;localStorage.setItem(KEY,JSON.stringify({i:index,t:audio.currentTime}));}
+
+const list = document.getElementById("list");
+DATA.sections.forEach((s,i)=>{
+  const box=document.createElement("div");
+  const row=document.createElement("div");row.className="row";
+  row.innerHTML='<div class="name">'+s.emoji+" "+s.name
+    +'<div class="meta" id="meta'+i+'">'+s.count+" 条 · 时长读取中</div></div><button>播放</button>";
+  row.querySelector("button").onclick=()=>{play(i,false)};
+  const det=document.createElement("details");
+  det.innerHTML="<summary>本板块讲稿（"+s.count+" 条，可边听边看）</summary><div class='tr'>"
+    +s.items.map((it,k)=>'<div class="ti" data-sec="'+i+'" data-i="'+k+'">'
+      +'<div class="ts">'+fmt(it.start)+'</div><div class="tx"><b>'+it.title+'</b>'
+      +(it.body?'<p>'+it.body+'</p>':'')+'</div></div>').join("")+"</div>";
+  det.querySelectorAll(".ti").forEach(el=>{
+    el.onclick=()=>{const sec=parseInt(el.dataset.sec),k=parseInt(el.dataset.i);
+      const it=DATA.sections[sec].items[k];
+      if(index!==sec||allMode){play(sec,false);}
+      audio.currentTime=it.start;};
+  });
+  box.appendChild(row);box.appendChild(det);
+  if(i<DATA.sections.length-1)box.style.borderBottom="1px solid var(--line)";
+  list.appendChild(box);
+});
+
+function mark(i){document.querySelectorAll(".row").forEach((r,n)=>r.classList.toggle("on",n===i));}
+function play(i,all){
+  index=i;allMode=all;audio.src=DATA.sections[i].file;
+  audio.dataset.backup=DATA.sections[i].backup||"";audio.dataset.trying=DATA.sections[i].file;
+  const p=audio.play();
+  if(p&&p.catch){p.catch(function(){document.getElementById("toggle").textContent="▶ 点此播放";});}
+  mark(i);document.getElementById("nowTitle").textContent=DATA.sections[i].emoji+" "+DATA.sections[i].name;
+  document.getElementById("mode").textContent=all?"全部连播":"单板块";
+  document.getElementById("toggle").textContent="⏸";
+}
+audio.addEventListener("error",function(){
+  const b=audio.dataset.backup;
+  if(b&&audio.dataset.trying!==b){audio.dataset.trying=b;audio.src=b;audio.play().catch(function(){});}
+});
+function next(){if(index+1<DATA.sections.length){play(index+1,true)}else{allMode=false;document.getElementById("toggle").textContent="▶";}}
+audio.addEventListener("ended",()=>{if(allMode)next();else document.getElementById("toggle").textContent="▶";});
+let tick=0;
+audio.addEventListener("timeupdate",()=>{
+  document.getElementById("nowTime").textContent=fmt(audio.currentTime)+" / "+fmt(audio.duration);
+  if(audio.duration)document.getElementById("seek").value=(audio.currentTime/audio.duration)*100;
+  if(++tick%4===0){save();highlight();}
+});
+function highlight(){
+  const sec=DATA.sections[index];if(!sec)return;
+  let cur=-1;for(let k=0;k<sec.items.length;k++){if(audio.currentTime>=sec.items[k].start)cur=k;else break;}
+  document.querySelectorAll(".ti.live").forEach(e=>e.classList.remove("live"));
+  if(cur>=0){const el=document.querySelector('.ti[data-sec="'+index+'"][data-i="'+cur+'"]');
+    if(el){el.classList.add("live");}}
+}
+audio.addEventListener("loadedmetadata",()=>{
+  if(index>=0)document.getElementById("meta"+index).textContent=DATA.sections[index].count+" 条 · "+fmt(audio.duration);
+});
+audio.addEventListener("pause",save);
+document.getElementById("playAll").onclick=()=>play(0,true);
+document.getElementById("toggle").onclick=()=>{
+  if(index<0){play(0,true);return}
+  if(audio.paused){audio.play();document.getElementById("toggle").textContent="⏸"}
+  else{audio.pause();document.getElementById("toggle").textContent="▶"}
+};
+document.getElementById("prev").onclick=()=>{if(index>0)play(index-1,allMode)};
+document.getElementById("next").onclick=()=>{if(index+1<DATA.sections.length)play(index+1,allMode)};
+document.getElementById("seek").oninput=e=>{if(audio.duration)audio.currentTime=audio.duration*e.target.value/100};
+document.getElementById("resumeBtn").onclick=()=>{const s=saved();if(s){play(s.i,true);audio.currentTime=s.t||0;document.getElementById("resume").style.display="none";}};
+document.getElementById("forgetBtn").onclick=()=>{localStorage.removeItem(KEY);document.getElementById("resume").style.display="none";play(0,true)};
+(function(){const s=saved();if(s&&s.i<DATA.sections.length){
+  document.getElementById("resumeText").innerHTML="上次听到 <b>"+DATA.sections[s.i].emoji+" "
+    +DATA.sections[s.i].name+"</b> 的 "+fmt(s.t)+" 处";
+  document.getElementById("resume").style.display="block";}})();
+(function(){const h=(location.hash||"").replace("#","");if(!h)return;
+  const i=DATA.sections.findIndex(s=>s.key===h);if(i>=0)play(i,false);})();
+</script></body></html>
